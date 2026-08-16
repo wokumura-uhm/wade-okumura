@@ -42,4 +42,4 @@ No credentials, no API keys, no personal data about anyone, no licensed or copyr
 
 ## Mistakes to avoid (append to this list)
 Record errors here as they happen, so the same one does not repeat.
-- 
+- (first error goes here)
