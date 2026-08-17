@@ -1,34 +1,22 @@
 <!--
-
-\---
-
+---
 purpose: "Resume for Wade Okumura GitHub portfolio — Markdown source that exports cleanly to PDF via browser print"
-
 audience: instructor
-
 naming\_convention: "RESUME.md (lives at the root of the portfolio repo)"
-
 course: \[BUS-629]
-
 instructor: Adam Stauffer
-
-\---
-
-\-->
+---
+-->
 
 
 
-\# Wade Okumura
-
-\*\*Email:\*\* wokumura@hawaii.edu · (402) 370-8880 (Google Number)  
-
-\*\*School Address:\*\* Dorm/Residence, City, State, ZIP  
-
-\*\*Permanent Address:\*\* Honolulu, Hawai'i  
+# Wade Okumura
+**Email:** wokumura@hawaii.edu · (402) 370-8880 (Google Number)  
+**School Address:** Dorm/Residence, City, State, ZIP  
+**Permanent Address:** Honolulu, Hawai'i  
 
 
-
-\---
+---
 
 
 
