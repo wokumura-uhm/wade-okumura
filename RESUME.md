@@ -20,21 +20,17 @@ instructor: Adam Stauffer
 
 
 
-\## EDUCATION
+## EDUCATION
 
-\*\*University of Hawai'i at Manoa\*\*, \*Executive Master of Business Administration (EMBA)\* — Honolulu, Hawai'i
-
-\- Shidler College of Business, Distance Learning Executive MBA (DLEMBA) - Expected May 2028
-
+**University of Hawai'i at Manoa**, *Executive Master of Business Administration (EMBA)* — Honolulu, Hawai'i
+- Shidler College of Business, Distance Learning Executive MBA (DLEMBA) - Expected May 2028
 
 
-\*\*University of Hawai'i at Manoa\*\*, \*Bachelor of Business Administration (BBA), Management Information Systems\* — Honolulu, Hawai'i  
-
-\- Shidler College of Business, December 1999  
-
+**University of Hawai'i at Manoa**, *Bachelor of Business Administration (BBA), Management Information Systems* — Honolulu, Hawai'i  
+- Shidler College of Business, December 1999  
 
 
-\---
+---
 
 
 
