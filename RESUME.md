@@ -9,7 +9,7 @@ instructor: Adam Stauffer
 -->
 
 # Wade Okumura
-**Email:** wokumura@hawaii.edu · (402) 370-8880 (Google Number)  
+**Email:** wokumura@hawaii.edu  
 **Permanent Address:** Honolulu, Hawai'i  
 
 ---
