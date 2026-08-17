@@ -2,37 +2,27 @@
 ---
 purpose: "Resume for Wade Okumura GitHub portfolio — Markdown source that exports cleanly to PDF via browser print"
 audience: instructor
-naming\_convention: "RESUME.md (lives at the root of the portfolio repo)"
-course: \[BUS-629]
+naming_convention: "RESUME.md (lives at the root of the portfolio repo)"
+course: [BUS-629]
 instructor: Adam Stauffer
 ---
 -->
 
-
-
 # Wade Okumura
 **Email:** wokumura@hawaii.edu · (402) 370-8880 (Google Number)  
-**School Address:** Dorm/Residence, City, State, ZIP  
 **Permanent Address:** Honolulu, Hawai'i  
 
-
 ---
-
-
 
 ## EDUCATION
 
 **University of Hawai'i at Manoa**, *Executive Master of Business Administration (EMBA)* — Honolulu, Hawai'i
 - Shidler College of Business, Distance Learning Executive MBA (DLEMBA) - Expected May 2028
 
-
 **University of Hawai'i at Manoa**, *Bachelor of Business Administration (BBA), Management Information Systems* — Honolulu, Hawai'i  
 - Shidler College of Business, December 1999  
 
-
 ---
-
-
 
 \## PROFESSIONAL EXPERIENCE
 
