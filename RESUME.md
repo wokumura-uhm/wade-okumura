@@ -24,29 +24,39 @@ instructor: Adam Stauffer
 
 ---
 
-\## PROFESSIONAL EXPERIENCE
+## PROFESSIONAL EXPERIENCE
 
-\*\*Organization Name\*\*, \*Role\* — City, State — Month Year–Present  
+**Alaska Airlines**, *Senior Product Manager* — Honolulu, Hawai'i — Sep 2025–Present  
+- Bullet point describing work performed and outcomes achieved  
+- Bullet point with quantifiable results, e.g., “Analyzed data for $X million revenue project”  
+- Bullet point with skills/tools used  
 
-\- Bullet point describing work performed and outcomes achieved  
+**Hawaiian Airlines**, *Senior IT Analyst / Technical Product Manager* — Honolulu, Hawai'i — Oct 2016–Sep 2025  
+- Bullet point describing leadership or project responsibility  
+- Bullet point highlighting collaboration, teaching, or mentoring  
+- Bullet point with outcome/impact  
 
-\- Bullet point with quantifiable results, e.g., “Analyzed data for $X million revenue project”  
+**Iolani School**, *SIS Administrator / Database Analyst* — Honolulu, Hawai'i — Jan 2015–Oct 2016  
+- Bullet point describing work performed and outcomes achieved  
+- Bullet point with quantifiable results, e.g., “Analyzed data for $X million revenue project”  
+- Bullet point with skills/tools used  
 
-\- Bullet point with skills/tools used  
+**Hawai'i State Department of Education**, *Data Processing Systems Analyst V* — Honolulu, Hawai'i — Oct 2004–Jan 2015  
+- Bullet point describing work performed and outcomes achieved  
+- Bullet point with quantifiable results, e.g., “Analyzed data for $X million revenue project”  
+- Bullet point with skills/tools used  
 
+**Hawai'i State Department of Transportation**, *System Analyst* — Honolulu, Hawai'i — Dec 2002–Oct 2004  
+- Bullet point describing work performed and outcomes achieved  
+- Bullet point with quantifiable results, e.g., “Analyzed data for $X million revenue project”  
+- Bullet point with skills/tools used  
 
+**Verizon**, *Management Associate* — Honolulu, Hawai'i — Aug 2000–Dec 2002  
+- Bullet point describing work performed and outcomes achieved  
+- Bullet point with quantifiable results, e.g., “Analyzed data for $X million revenue project”  
+- Bullet point with skills/tools used  
 
-\*\*Organization Name\*\*, \*Role\* — City, State — Month Year–Month Year  
-
-\- Bullet point describing leadership or project responsibility  
-
-\- Bullet point highlighting collaboration, teaching, or mentoring  
-
-\- Bullet point with outcome/impact  
-
-
-
-\---
+---
 
 
 
