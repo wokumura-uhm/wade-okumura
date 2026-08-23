@@ -1,6 +1,6 @@
 ---
 ---
-Wade Okumura is a Senior IT Product Manager based in Honolulu, Hawai'i, with a passion for using technology, data, and innovation to solve complex business challenges. With extensive experience leading technology initiatives in the aviation industry, Wade enjoys bringing together people, processes, and technology to create meaningful improvements that drive organizational success. He is currently pursuing an Exeutive Master of Business Administration (EMBA) at the Shidler College of Business at the University of Hawai'i at Manoa.
+Wade Okumura is a Senior IT Product Manager based in Honolulu, Hawai'i, with a passion for using technology, data, and innovation to solve complex business challenges. With extensive experience leading technology initiatives in the aviation industry, Wade enjoys bringing together people, processes, and technology to create meaningful improvements that drive organizational success. He is currently pursuing an Executive Master of Business Administration (EMBA) at the Shidler College of Business at the University of Hawai'i at Manoa.
 
 His interests include product management, digital transformation, data analytics, artificial intelligence, and organizational leadership. Wade is particularly inspired by the potential of technology to improve customer experiences, increase operational efficiency, and help organizations adapt and thrive in a rapidly changing world.
 
