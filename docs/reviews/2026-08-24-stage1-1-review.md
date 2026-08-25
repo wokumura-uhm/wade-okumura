@@ -5,7 +5,7 @@
 
 **Brief:** [`docs/briefs/perfect-competition-brief.md`](https://github.com/wokumura-uhm/wade-okumura/blob/main/docs/briefs/perfect-competition-brief.md)
 
-> docs/briefs/perfect-competition-brief.md exists and was committed on 2026-08-17, but the file contains no text at all — zero bytes of content. Nothing to grade, so nothing is recorded.
+> Your docs/briefs/perfect-competition-brief.md exists and you committed it on 2026-08-17, but the file contains no text at all — zero bytes of content. Nothing to grade, so nothing is recorded.
 
 ### What to do
 
