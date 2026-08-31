@@ -1,43 +1,17 @@
 ---
-type: prompt-log
-project: portolio-setup
-date: 2026-08-30
+template: prompt-log
+purpose: "Running log of meaningful AI prompts and outputs used in a project — supports reproducibility and AI-use disclosure"
+audience: student
+fields_required: [date, goal, prompt, tool, output_location, notes]
+naming_convention: "prompt-log.md (one per project, lives in deliverables/)"
+courses: [BUS-313, BUS-314, BUS-620, BUS-629, FIN-321, BUS-122B]
 ---
 
 # Prompt Log
 
-## Entry 1
-
-### Goal
-Create a professional biography for my portfolio.
-
-### Prompt
-"look at this bio template and create a bio for me"
-
-### AI Output used?
-Yes
-
-### What I changed
-Reviewed and edited wording to better reflect my experience at Alaska Airlines and my goals as a UH Manoa DLEMBA student.
-
-### Reflection
-The AI helped organize my background into a more concise and professoinal narrative, but I adjusted the tone to better match my voice.
-
----
-
-## Entry 2
-
-### Goal
-Create a Markdown resume from an existing resume
-
-### Prompt
-"look at this resume template and use my uploaded resume to create a resume.md file"
-
-### AI Output used?
-Yes
-
-### What I changed
-Verified employment history, formatting, and education details before publishing.
-
-### Reflection
-The AI accelerated the conversion to Markdown and improved consistency in formatting
+| Date | Goal | Exact Prompt | Tool (LLM/Sheet/Code) | Output Link/Location | Notes |
+|------|------|--------------|------------------------|----------------------|-------|
+| 2026-08-30 | Create professional biography | "Look at this bio template and create a bio for me." | Microsoft Copilot | BIO.md | Generated initial draft from resume and background information. |
+| 2026-08-30 | Create Markdown resume | "Look at this resume template and use my uploaded resume to create a resume.md file." | Microsoft Copilot | RESUME.md | Converted resume into repository Markdown format. |
+| 2026-08-30 | Improve professional biography | "Rewrite the bio to sound more professional while maintaining my voice." | Microsoft Copilot | BIO.md | Used selected edits and manually reviewed content. |
+| 2026-08-31 | Document AI usage process | "Help me understand what belongs in prompt-log.md." | Microsoft Copilot | prompt-log.md | Created reproducibility documentation for AI-assisted work. |
