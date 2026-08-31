@@ -1,4 +1,4 @@
-﻿# AI conventions
+# AI conventions
 
 ## About this repository
 This repo tracks the work that Wade Okumura is doing for BUS 620 Econ.
