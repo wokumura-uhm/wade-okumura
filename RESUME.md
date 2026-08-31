@@ -1,13 +1,3 @@
-<!--
----
-purpose: "Resume for Wade Okumura GitHub portfolio — Markdown source that exports cleanly to PDF via browser print"
-audience: instructor
-naming_convention: "RESUME.md (lives at the root of the portfolio repo)"
-course: [BUS-620]
-instructor: Adam Stauffer
----
--->
-
 ## Wade Okumura
 
 **Email:** wokumura@hawaii.edu  
