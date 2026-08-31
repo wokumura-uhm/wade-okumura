@@ -1,9 +1,9 @@
----
----
+# Wade Okumura
+
 Wade Okumura is a Senior IT Product Manager based in Honolulu, Hawai'i, with a passion for using technology, data, and innovation to solve complex business challenges. With extensive experience leading technology initiatives in the aviation industry, Wade enjoys bringing together people, processes, and technology to create meaningful improvements that drive organizational success. He is currently pursuing an Executive Master of Business Administration (EMBA) at the Shidler College of Business at the University of Hawai'i at Manoa.
 
 His interests include product management, digital transformation, data analytics, artificial intelligence, and organizational leadership. Wade is particularly inspired by the potential of technology to improve customer experiences, increase operational efficiency, and help organizations adapt and thrive in a rapidly changing world.
 
 Throughout his career, Wade has led initiatives supporting regulatory compliance, operational excellence, and large-scale modernization efforts. He recently earned the Microsoft PL-300 Power BI certification and is actively building a public portfolio of analytics and AI projects, reflecting his commitment to lifelong learning and continuous growth.
 
-As he advances through the EMBA program, Wade aims to stregthen his leadership and strategic decision-making capabilities. His long-term goal is to serve in executive leadership roles within the aviation industry while helping shape Hawai'i's next generation of business and community leaders. He believes that investing in people, embracing innovation, and leading with purpose can create lasting positive impact for organizations and communities alike.
+As he advances through the EMBA program, Wade aims to strengthen his leadership and strategic decision-making capabilities. His long-term goal is to serve in executive leadership roles within the aviation industry while helping shape Hawai'i's next generation of business and community leaders. He believes that investing in people, embracing innovation, and leading with purpose can create lasting positive impact for organizations and communities alike.
