@@ -10,7 +10,7 @@ course: BUS-620
 # BUS-620 Perfect Competition Analysis Specification
 
 **Author:** Wade Okumura  
-**Date:** 2026-08-22  
+**Date:** 2026-08-31 
 **Version:** 1.0  
 **Company:** To be selected; use a clearly identified company, market, or industry.
 
