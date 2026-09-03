@@ -3,41 +3,47 @@
 
 **Brief:** [`docs/briefs/perfect-competition-brief.md`](https://github.com/wokumura-uhm/wade-okumura/blob/main/docs/briefs/perfect-competition-brief.md)
 
-> Graded 2026-08-31, first pass on this brief — your previous result on this stage was a hold, because the file was empty. There is a real brief there now and it is entered. Your raw came to 56 and the floor is carrying the rest; two of the four criteria are near zero and both are fixable in an evening.
+> Re-graded 2026-09-02 against your 1 September revision. Half of what you changed is a clear improvement and half of it went backwards, and the two roughly cancel. Scores never go down in a re-grade, so 80 stands — but I want to be straight with you about which half is which, because the thing you removed is the thing this stage is scored on.
 
 | Criterion | Earned | Notes |
 |---|---|---|
-| Problem restated in your own voice | 20 / 30 | What is there is genuinely yours and one phrase in it is better than anything else in the paragraph: "The resources consist of 64 beds, one pair of hands, and the budget for up to 4 temporary workers." One pair of hands is the constraint stated the way an operator would state it. You also catch the thing that makes this a brief worth writing: "The plan must be committed for the entire season" — one decision, no revisions. Ten points off for two reasons. It is two sentences where the stage asks for half a page to a page, and it contains a factual error: "I will not know the prices." The prices are given — $8,800, $2,094, and $2,700 per bed — and they are the crux of the case. What you cannot do is change them. That is what price taker means, and it is a different claim from not knowing them. |
-| Hypothesis names a specific mix | 20 / 25 | 22 tomato, 21 carrot, 21 mesclun — three integers summing to 64, specific and committed, which is what this criterion is for. Five points off because 22 tomato beds is above the tomato cap of 20, so the mix cannot be planted. A prediction that violates a stated constraint cannot be compared against a model that enforces it. |
-| Economic mechanism | 16 / 25 | The mechanism you name is the right one: "labor requirements increase as more beds of a single crop are planted, so concentrating too heavily on any one crop may cause diminishing returns to outweigh the additional revenue." That is correct and it is the whole engine of the case. What it does not survive is your own conclusion. A balanced 22 / 21 / 21 split only follows if the three crops behave similarly, and the case says they do not — the rates are 10 percent, 2.5 percent, and 1.25 percent, an eightfold spread, against prices that differ fourfold. Spreading evenly across three crops with rates that far apart is the one allocation the mechanism argues against. |
-| Falsifiability and process | 0 / 20 | There is no section. Nothing in the brief names a result that would show the reasoning was wrong, so no model outcome can contradict it. This is the largest single block of points available to you on this stage and it is a three-sentence job. |
-| **Raw total** | **56 / 100** | — |
-| **Floor applied** | **+24** | 80% floor: a committed brief that states the problem and names a specific mix |
-| **Final** | **80 / 100** | floored |
+| Problem restated in your own voice | 27 / 30 | Up from 20, and this is a real gain. The factual error is gone — you no longer say you will not know the prices, and you now state the farm's costs properly: $20,000 fixed, the farmer at $50,000 for 720 field hours, temporary workers at $25,000 each for 1,440 hours. You added the constraint that matters most and stated it plainly: "The planting decision must be made at the beginning of the season and cannot be changed during the growing cycle." Three points off because the section is now half case table, and a transcribed table is not a restatement. |
+| Hypothesis names a specific mix | 8 / 25 | Down from 20, and this is the whole problem. Your previous brief said 22 tomato / 21 carrot / 21 mesclun — three integers, committed, and specific enough that a model could contradict them. The tomato figure was above the cap, which cost five points. The new version says a "larger share" may go to carrots and that the plan is "expected to favor carrots over tomatoes, subject to profitability and labor constraints." There are no numbers in it. The eight points are for a stated direction; a direction is not a mix. |
+| Economic mechanism | 18 / 25 | Up from 16. The reasoning is cleaner than before and it is correct in direction: carrots have the lowest labor hours, the lowest fertilizer, and a low compounding rate, so they can absorb more beds before the marginal bed stops paying; tomatoes have the highest of all three and so stop early despite the price. You also dropped the even-split conclusion, which contradicted this reasoning. Seven points off because nothing is quantified — the rates are named, never used. |
+| Falsifiability and process | 0 / 20 | Still no section. Unchanged from last time, and still the largest block of points available to you on this stage for a three-sentence job. Nothing in the brief names a result that would show the reasoning was wrong, so no model outcome can contradict it. |
+| **Final** | **80 / 100** | unchanged — see note |
 
-### The one question to answer before you rewrite
+> Raw total 53, down from 56. Your previous 80 came from the floor, and the floor applies to a committed brief that restates the problem in your own words and names a specific mix. The brief no longer names a mix, so it no longer meets the second condition — but re-grades are generosity-only in this course and no score is ever lowered, so the 80 stands.
 
-Your prediction says spread the beds evenly. Your mechanism says concentration is punished. Those are compatible only if the punishment is roughly the same for every crop. It is not.
+### Put the numbers back, and keep everything else you did
 
-So the question to sit with is: if tomatoes are punished eight times as fast as mesclun per additional bed, but earn more than three times as much per bed, which effect wins first — and at what bed count? You do not need the model to reason about it. One tomato bed takes 2.5 x 36 = 90 labor hours for the season; the tenth tomato bed brings the crop's requirement to 10 x 2.5 x 36 x 1.1 to the tenth, which is about 2,334 hours, not 900. One mesclun bed takes 1.25 x 36 = 45 hours, and thirty mesclun beds take about 1,960 — not far off ten tomato beds, for three times the acreage.
+I think I know what happened. My last review said 22 tomato beds is above the 20-bed cap and a prediction that violates a stated constraint cannot be compared against a model that enforces it. The fix for that is to change 22 to a number at or under 20. It is not to remove the numbers.
 
-Whatever you conclude from that, it will not be an even split. That is the argument the brief is asking you for, and once you have it the falsification section writes itself.
+"Expected to favor carrots over tomatoes" cannot be wrong. Any model output with more carrots than tomatoes confirms it, and the case is built so that almost any sensible allocation does. A prediction that survives every outcome tells you nothing in Stage 3, which is where you are asked to explain the gap between what you expected and what the model said. There has to be a gap for that to be writable.
 
-### What I'd fix first
+Everything else in the revision should stay. The cost data, the price correction, the committed-for-the-season line, the cleaner mechanism — all of it is better than what was there.
 
-- Bring the tomato figure inside the 20-bed cap.
+### The arithmetic that will give you the numbers
 
-- Correct the line about not knowing the prices. They are given; you cannot change them.
+You have the rates. Use them once and the mix writes itself.
 
-- Expand the problem statement: what is fixed, what you choose, what limits the choice, and what happens if you choose badly. You already have the last one in the season-commitment sentence.
+One tomato bed takes 2.50 × 36 = 90 hours for the season. Ten tomato beds do not take 900 — the compounding applies to the whole crop, so it is 10 × 2.50 × 36 × 1.1^10, about 2,334 hours. One mesclun bed takes 1.25 × 36 = 45 hours, and thirty mesclun beds take about 1,960 — barely more than ten tomato beds, for three times the acreage.
 
-- Add "How I would know I was wrong." Three sentences, each naming a result the model could produce and the claim it would break. If the model comes back concentrated rather than balanced, your even-split reasoning was wrong. If it leaves beds empty, your assumption that all 64 should be planted was wrong.
+Now put a price on it. The farmer's 720 hours cost about $34.72 each and run out early; everything after that is temporary labor at about $17.36. So the marginal tomato bed late in the crop costs a few hundred hours of temp labor plus $880 of fertilizer, against $8,800 of revenue. Work out roughly where those cross and you have your tomato number. Carrots and mesclun compound so slowly that the question for them is whether anything stops them before their caps.
 
-### A note on sequence
+### What i would write, in order, and it is under an hour
 
-Your Stage 1.2 specification work is the largest anyone in this cohort had written a week ago — and it is at capabilities/perfect-competition/, which is not the graded path, while capabilities/marginal-analysis/spec.md holds a stub. Details in your Stage 0 comment.
+- Three integers under Hypothesis. Tomatoes at or under 20, carrots at or under 20, mesclun at or under 30, summing to 64 or fewer. One paragraph on why those and not others, using the rates.
 
-Worth saying here: fix the brief before the spec. The spec is where you write down what the model must do; the brief is where you decide what you think the answer is. Doing them in the other order means the specification quietly becomes the prediction, and Stage 3 has nothing to compare.
+- A section called "How I would know I was wrong." Three sentences, each naming a number the model could return and the claim of yours it would break. This is worth 20 points and it is the cheapest 20 points on the page.
+
+- Leave the rest alone. It is good now.
+
+### One note on Stage 1.2, which is graded separately
+
+You did both things I asked on the repository side — analysis/README.md and docs/README.md are in, and the specification moved to capabilities/marginal-analysis/spec.md with the old folder removed. That moved your Stage 0 from 94 to 96.
+
+The separate Stage 1.2 review has the substantive point about that specification, and it is worth reading before you spend more time on it: the document at that path specifies how to analyse a company or market in general, not how to build this farm's model. That stage is due 6 September.
 
 ---
 
