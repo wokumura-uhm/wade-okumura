@@ -18,4 +18,4 @@ Based on the relatively high labor requirements and steep diminishing returns as
 
 - If the model recommends close to 20 tomato beds, then I have underestimated the profitability of tomatoes despite their labor requirements.
 - If the model allocates fewer than 20 carrot beds, then I have overestimated the relative value of carrots.
-- If the model leaves significant labor unused, then I have incorrectly identified labor as the primary constraint.
+- If the model leaves more than 500 labor hours unused, then I have incorrectly identified labor as the primary constraint.
