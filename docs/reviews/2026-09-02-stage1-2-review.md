@@ -1,21 +1,18 @@
-<!-- PR TARGET: https://github.com/wokumura-uhm/wade-okumura | Stage 1.2 (8 pts) -->
+<!-- PR TARGET: https://github.com/wokumura-uhm/wade-okumura | Stage 1.2 -->
 # Stage 1.2 review — spec, build, audit
-
-**Spec-side 17 out of 62.5 — held, not entered. The stage is not due until 6 September and there is no workbook, so there is nothing to compute a total against yet.**
 
 **Spec:** [`capabilities/marginal-analysis/spec.md`](https://github.com/wokumura-uhm/wade-okumura/blob/main/capabilities/marginal-analysis/spec.md)
 
 > Graded 2026-09-02, first pass. You did the file move I asked for on 31 August — the specification is now at capabilities/marginal-analysis/spec.md and the duplicate perfect-competition folder is gone — and I confirmed the content moved intact. That fixed your Stage 0. What it also revealed is a problem I should have caught last time and did not: the document is a general template for analysing a company, not a specification of this farm's model. I judged it by its length before and that was my error.
 
-| Criterion | Earned | Notes |
-|---|---|---|
-| Spec completeness — inputs, structure, calculation flow | 9 / 37.5 | The document is well organised and the process it describes is sound — separate observations from assumptions, state units and price basis, label model illustrations, do not silently infer missing values. What it does not contain is this model. The Data Inputs table has fourteen rows and every Value cell is blank with the source listed as "To be supplied": market_name, price_observed, quantity_observed, marginal_cost, average_variable_cost. None of the case's numbers are in it — not the 64 beds, the three crops, the $8,800, the 2.50 hours per bed-week, the 10 percent compounding, the 20-bed cap, the $20,000 fixed cost, the farmer's 720 hours. There is no labor function, no sheet structure, no named ranges, and no statement of what the workbook computes. Nine points for the framework, which is real; a builder cannot build a workbook from it because it does not describe one. |
-| Spec validation rules | 8 / 25 | Ten rules and several are genuinely good ones: units and price basis must be consistent, total revenue must reconcile to price times quantity, sensitivity analysis must identify which assumptions change the conclusion, and re-running from documented inputs must reproduce the reported outputs. That last one is the definition of reproducibility and most people in this cohort did not write it. Eight points because none of them can fail against this model — there is no hand-check anchor, no published check figure, no tolerance, and nothing that names a quantity this workbook would produce. |
-| Workbook satisfies the contract | 0 / 25 | No workbook. You removed the xlsx files on 31 August. None was due, so nothing is lost — but the stage is due 6 September and the specification it is meant to be built from does not exist yet. |
-| Audit note | 0 / 12.5 | No audit section, which is correct with no build behind it. |
-| **Spec-side subtotal** | **17 / 62.5** | the part that can be earned before a workbook exists |
+| Criterion | Where it stands |
+|---|---|
+| Spec completeness — inputs, structure, calculation flow | The document is well organised and the process it describes is sound — separate observations from assumptions, state units and price basis, label model illustrations, do not silently infer missing values. What it does not contain is this model. The Data Inputs table has fourteen rows and every Value cell is blank with the source listed as "To be supplied": market_name, price_observed, quantity_observed, marginal_cost, average_variable_cost. None of the case's numbers are in it — not the 64 beds, the three crops, the $8,800, the 2.50 hours per bed-week, the 10 percent compounding, the 20-bed cap, the $20,000 fixed cost, the farmer's 720 hours. There is no labor function, no sheet structure, no named ranges, and no statement of what the workbook computes. Nine points for the framework, which is real; a builder cannot build a workbook from it because it does not describe one. |
+| Spec validation rules | Ten rules and several are genuinely good ones: units and price basis must be consistent, total revenue must reconcile to price times quantity, sensitivity analysis must identify which assumptions change the conclusion, and re-running from documented inputs must reproduce the reported outputs. That last one is the definition of reproducibility and most people in this cohort did not write it. Eight points because none of them can fail against this model — there is no hand-check anchor, no published check figure, no tolerance, and nothing that names a quantity this workbook would produce. |
+| Workbook satisfies the contract | No workbook. You removed the xlsx files on 31 August. None was due, so nothing is lost — but the stage is due 6 September and the specification it is meant to be built from does not exist yet. |
+| Audit note | No audit section, which is correct with no build behind it. |
 
-> Spec-side 17 of 62.5. Held, not entered — the stage is not due until 6 September and this is recoverable in the time available.
+> The spec-side criteria are summarised above. Held, not entered — the stage is not due until 6 September and this is recoverable in the time available.
 
 ### The distinction that matters here, and it is not a small one
 
@@ -62,10 +59,10 @@ Your Stage 1.1 brief needs a hypothesis with three numbers in it and a falsifica
 Treat this PR the way an analyst treats feedback from a senior reviewer — a review is a proposal to engage with, not a checklist to rubber-stamp.
 
 1. **Read it yourself first.** Form your own view before you change anything. Disagreeing *with a documented reason* is a legitimate, senior response.
-2. **Stress-test it with an LLM.** Paste this review and your spec into your assistant and ask it to (a) explain anything you are unsure of, and (b) argue the *other side* — where might the reviewer be wrong, and what would you give up by making each change.
-3. **Then correct the spec, not the workbook.** This is the rule that makes the stage work: when a check fails, you fix the specification and regenerate, so the document keeps describing what was actually built.
+2. **Stress-test it with an LLM.** Paste this review and your spec into your assistant and ask it to (a) explain anything you are unsure of, and (b) argue the *other side*.
+3. **Then correct the spec, not the workbook.** When a check fails, you fix the specification and regenerate, so the document keeps describing what was actually built.
 4. **Close the loop.** Reply in this thread with what you changed and what you pushed back on, then commit and push.
 
-*Nothing here is final. Stage 1.2 is not due until 6 September, and the stage is re-graded from scratch at the deadline.*
+*Your score and the per-criterion breakdown are in your Lamaku comment, not here — this repository is public.*
 
 — Adam
