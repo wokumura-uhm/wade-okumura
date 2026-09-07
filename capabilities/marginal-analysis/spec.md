@@ -148,11 +148,18 @@ TOTAL_FERTILIZER_COST
 TOTAL_PROFIT =
 TOTAL_REVENUE − TOTAL_VARIABLE_COST − TOTAL_FIXED_COST
 
+For each crop schedule, the other two crops are held at zero beds.
+
 TOTAL_COST(q) =
-LABOR_COST(q) + FERTILIZER_COST(q)
+Crop_specific labor cost(q) +
+Crop-specific fertilizer cost(q)
+
+Fixed costs are excluded from TOTL_COST(q).
 
 MC(q) =
 TOTAL_COST(q) - TOTAL_COST(q-1)
+
+MC(0) is blank.
 
 TOTAL_LABOR_USED =
 TOTAL_LABOR_HRS
@@ -196,7 +203,7 @@ Structural Checks
 Acceptance Criteria
 
 - Optimal mix = 10 tomatoes, 20 carrots, 30 mesclun.
-- Season profit ≈ $42,762.
+- Season profit = $42,762 ± $5.
 - LABOR_HRS(1) for tomatoes = 99.
 
 ## Outputs
