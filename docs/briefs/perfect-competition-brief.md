@@ -12,10 +12,10 @@ The objective is to determine the profit-maximizing allocation of 64 beds among 
 
 ## Hypothesis
 
-Based on the relatively high labor requirements and steep diminishing returns associated with tomatoes, I expect tomato production to remain below its maximum of 20 beds. I expect carrots and mesclun to reach or approach their planting limits because they require less labor and experience smaller diminishing returns. As a result, I predict the solution will allocate approximately 10 tomato beds, 20 carrot beds, and 30 mesclun beds, with any remaining beds left unplanted if labor becomes the binding constraint.
+Tomatoes generate the highest revenue per bed but also require the greatest labor input, highest fertilizer costs, and experience the steepest diminishing returns (10% per additional bed). Carrots have the lowest labor requirements, lowest fertilizer costs, and much smaller diminishing returns (2.5% per additional bed), while mesclun falls between the two. Therefore, I expect the profit-maximizing solution to fully utilize the available carrot and mesclun capacity limits (20 and 30 beds respectively), while allocating approximately 10 beds to tomatoes. This would result in an expected planting mix of 10 tomato beds, 20 carrot beds, and 30 mesclun beds, with any remaining beds left unplanted if additional planting is no longer profitable.
 
 ## How I Would Know I Was Wrong
 
-- If the model recommends close to 20 tomato beds, then I have underestimated the profitability of tomatoes despite their labor requirements.
-- If the model allocates fewer than 20 carrot beds, then I have overestimated the relative value of carrots.
-- If the model leaves more than 500 labor hours unused, then I have incorrectly identified labor as the primary constraint.
+- If the model recommends fewer than 5 tomato beds or more than 15 tomato beds, then my reasoning about diminishing returns and labor costs is likely incorrect.
+- If the model does not allocate all 20 carrot beds, then my assumption that carrots provide the strongest marginal return per unit of labor is likely incorrect.
+- If more than 500 labor hours remain unused, then my assumption that labor is the primary binding constraint is likely incorrect.
