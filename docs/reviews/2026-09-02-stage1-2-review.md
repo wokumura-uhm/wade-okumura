@@ -9,10 +9,10 @@
 |---|---|
 | Spec completeness — inputs, structure, calculation flow | The document is well organised and the process it describes is sound — separate observations from assumptions, state units and price basis, label model illustrations, do not silently infer missing values. What it does not contain is this model. The Data Inputs table has fourteen rows and every Value cell is blank with the source listed as "To be supplied": market_name, price_observed, quantity_observed, marginal_cost, average_variable_cost. None of the case's numbers are in it — not the 64 beds, the three crops, the $8,800, the 2.50 hours per bed-week, the 10 percent compounding, the 20-bed cap, the $20,000 fixed cost, the farmer's 720 hours. There is no labor function, no sheet structure, no named ranges, and no statement of what the workbook computes. Nine points for the framework, which is real; a builder cannot build a workbook from it because it does not describe one. |
 | Spec validation rules | Ten rules and several are genuinely good ones: units and price basis must be consistent, total revenue must reconcile to price times quantity, sensitivity analysis must identify which assumptions change the conclusion, and re-running from documented inputs must reproduce the reported outputs. That last one is the definition of reproducibility and most people in this cohort did not write it. Eight points because none of them can fail against this model — there is no hand-check anchor, no published check figure, no tolerance, and nothing that names a quantity this workbook would produce. |
-| Workbook satisfies the contract | No workbook. You removed the xlsx files on 31 August. None was due, so nothing is lost — but the stage is due 11 September and the specification it is meant to be built from does not exist yet. |
+| Workbook satisfies the contract | No workbook. You removed the xlsx files on 31 August. None was due, so nothing is lost — but nothing has been submitted for this stage yet either, and the specification the workbook is meant to be built from does not exist. |
 | Audit note | No audit section, which is correct with no build behind it. |
 
-> The spec-side criteria are summarised above. Held, not entered — the stage is not due until 11 September and this is recoverable in the time available.
+> The spec-side criteria are summarised above. Held, not entered — nothing is recorded against you, and this is recoverable.
 
 ### The distinction that matters here, and it is not a small one
 
