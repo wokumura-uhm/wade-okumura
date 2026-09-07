@@ -26,7 +26,7 @@ The farm has 6,480 labor hours — the farmer's 720 plus four temporary workers 
 
 It is not. And that is the single most valuable thing in this case. Labor never runs out — it gets more expensive. A bed stops being worth planting because the hour that plants it costs more than the bed earns, not because there are no hours left. You wrote a test that will teach you that, in advance, without knowing the answer. Put a number on "significant" before the model runs — say, more than 500 hours — and the test becomes something you can point at in Stage 1.3.
 
-### Stage 1.2 is due 11 september and it is the urgent one
+### Stage 1.2 is the next deliverable and it is the urgent one
 
 The document at capabilities/marginal-analysis/spec.md specifies how to conduct a perfect-competition analysis of a company or market in general. It does not specify this farm's model — there are no bed counts, no prices, no labor function, and every value in its inputs table reads "To be supplied". There is no workbook.
 
