@@ -1,188 +1,223 @@
 ---
-template: spec
-purpose: "Technical specification for a BUS-620 perfect-competition analysis capability"
-audience: student
-fields_required: [title, author, date, version, company, scope, model_architecture, data_inputs, derived_inputs, formulas, validation, analysis_requirements, output_format, references]
-naming_convention: "YYYY-MM-DD-{slug}.md"
-course: BUS-620
+type: spec
+capability: marginal-analysis
+engagement: perfect-competition
+date: 2026-09-07
+status: draft            # draft | built | audited
+built_with: "Copilot, from this file"
 ---
 
-# BUS-620 Perfect Competition Analysis Specification
+# Capability — model specification
 
-**Author:** Wade Okumura  
-**Date:** 2026-08-31 
-**Version:** 1.0  
-**Company:** To be selected; use a clearly identified company, market, or industry.
+## Purpose
 
----
+This model determines the profit-maximizing allocation of tomato, carrot, and mesclun beds subject to labor availability, worker hiring limits, land availability, crop capacity limits, fertilizer costs, and diminishing returns.
 
-## 1. Scope & Objective
+The model must identify the optimal planting mix, expected profit, labor utilization, and worker requirements.
 
-This specification defines a reproducible BUS-620 analysis of a selected company, market, or industry through the perfect-competition model. The analysis must identify its decision question, analytical period, geographic or market boundary, units, intended audience, assumptions, limitations, and evidence standard before work begins.
+## Inputs — the named contract
 
-The objective is to assess how closely the selected case aligns with perfect-competition assumptions and to evaluate firm behavior, short-run production decisions, and long-run equilibrium. The work must distinguish observed data from assumptions, estimates, and model outputs and must not claim that a simplified model completely describes an operating business.
+| Name | Value | Unit | Source |
+| --- | --- | --- | --- |
+| `TOM_MAX_BEDS` | 20 | num beds | Case scenario, crop table |
+| `TOM_PRICE` | 8800 | USD per bed | Case scenario, crop table |
+| `TOM_HRS` | 2.5 | hours per week per bed | Case scenario, crop table |
+| `TOM_FERT_COST` | 880 | USD per bed | Case scenario, crop table |
+| `TOM_DIM_PCT` | 0.10 | percent per bed | Case scenario, crop table |
+| `CAR_MAX_BEDS` | 20 | num beds | Case scenario, crop table |
+| `CAR_PRICE` | 2094 | USD per bed | Case scenario, crop table |
+| `CAR_HRS` | 0.833 | hours per week per bed | Case scenario, crop table |
+| `CAR_FERT_COST` | 440 | USD per bed | Case scenario, crop table |
+| `CAR_DIM_PCT` | 0.025 | percent per bed | Case scenario, crop table |
+| `MES_MAX_BEDS` | 30 | num beds | Case scenario, crop table |
+| `MES_PRICE` | 2700 | USD per bed | Case scenario, crop table |
+| `MES_HRS` | 1.25 | hours per week per bed | Case scenario, crop table |
+| `MES_FERT_COST` | 880 | USD per bed | Case scenario, crop table |
+| `MES_DIM_PCT` | 0.0125 | percent per bed | Case scenario, crop table |
+| `TOTAL_BEDS` | 64 | num beds | Case scenario |
+| `FARMER_HOURS` | 720 | hours | Case scenario |
+| `TEMP_WORKER_HOURS` | 1440 | max hours per worker | Case scenario |
+| `MAX_TEMP_WORKERS` | 4 | max num workers | Case scenario |
+| `BED_FIXED_COST` | 20000 | USD | Case scenario |
+| `FARMER_SALARY` | 50000 | USD | Case scenario |
+| `FARMER_RATE` | 34.72 | USD per hour | Case scenario |
+| `TEMP_RATE` | 17.36 | USD per hour | Case scenario |
+| `SEASON_WEEKS` | 36 | num weeks | Case scenario |
 
----
+DIM_PCT values are stored as decimal percentages (10% = 0.10, 2.5% = 0.025, 1.25% = 0.0125).
 
-## Part A — Model Specification
+## Structure
 
-### 2. Model Architecture
+Five sheets.
 
-Store this capability and each engagement using the following structure:
+- Inputs
+  - One row per named input in Section 1.
+  - Columns: Name, Value, Unit, Source.
+  - Contains no formulas.
 
-```text
-capabilities/perfect-competition/
-docs/briefs/<specification>.md
-data/<engagement>/
-analysis/<engagement>/
-analysis/figures/<engagement>/
-docs/decisions/<engagement>-decision.md
-```
+- CostStructure
+  - Calculates total labor hours, farmer hours used, temporary labor hours used,
+    temporary workers required, farmer labor cost, temporary labor cost,
+    blended labor rate, fertilizer cost, fixed cost, and total cost at the
+    current planting levels.
 
-The capability folder should contain the specification and model implementation. Each engagement should contain:
+- MCSchedules
+  - One block per crop (tomatoes, carrots, mesclun).
+  - Quantity q = 0 through MAX_BEDS for that crop.
+  - Columns: q, labor hours, labor cost, fertilizer cost, total cost,
+    marginal cost, revenue, marginal revenue, and profit contribution.
 
-- `README.md`: question, status, owner, source list, and reproducibility instructions.
-- `data/`: sourced inputs and provenance; do not overwrite original source files.
-- `analysis/`: calculations, tables, and narrative findings.
-- `analysis/figures/`: figures with descriptive filenames and source notes.
-- `docs/decisions/`: recommendations and limitations written after analysis.
+- Optimization
+  - Decision variables TOM_BEDS, CAR_BEDS, and MES_BEDS.
+  - Objective function TOTAL_PROFIT.
+  - Solver objective: Maximize TOTAL_PROFIT.
+  - Solver changing cells: TOM_BEDS, CAR_BEDS, MES_BEDS.
+  - Solver Method: GRG Nonlinear.
+  - Constraint calculations for:
+    - TOM_BEDS <= TOM_MAX_BEDS
+    - CAR_BEDS <= CAR_MAX_BEDS
+    - MES_BEDS <= MES_MAX_BEDS
+    - TOM_BEDS + CAR_BEDS + MES_BEDS <= TOTAL_BEDS
+    - TEMP_HOURS_USED <= MAX_TEMP_WORKERS x TEMP_WORKER_HOURS
+    - All bed allocations are integers.
 
-Separate the workflow into four layers:
+- Checks
+  - One row per validation rule from Section 4.
+  - Columns: Expected Result, Actual Result, PASS/FAIL.
 
-1. **Inputs:** sourced observations and explicitly labeled assumptions.
-2. **Calculations:** derived variables and formulas using named variables.
-3. **Outputs:** tables, figures, model results, and sensitivity analysis.
-4. **Interpretation:** findings, limitations, and recommendations tied to evidence.
+## Calculation logic
 
-Use consistent units within each model. Record currency, price basis, time period, quantity units, and whether values are nominal or inflation-adjusted. Every figure and table must identify its source or state that it is a model illustration.
+TOM_LABOR_HRS(q) =
+q × TOM_HRS × SEASON_WEEKS × (1 + TOM_DIM_PCT)^q
 
-### 3. Data Inputs
+CAR_LABOR_HRS(q) =
+q × CAR_HRS × SEASON_WEEKS × (1 + CAR_DIM_PCT)^q
 
-Complete this table before analysis. Values must be supplied from cited sources or explicitly labeled assumptions; the executor must not silently infer missing values.
+MES_LABOR_HRS(q) =
+q × MES_HRS × SEASON_WEEKS × (1 + MES_DIM_PCT)^q
 
-| Named Input | Description | Source | Value | Unit |
-|-------------|-------------|--------|-------|------|
-| `market_name` | Market or industry analyzed | To be supplied | | Text |
-| `company_name` | Focal company, if applicable | To be supplied | | Text |
-| `analysis_period` | Fiscal year, quarter, or date range | To be supplied | | Date range |
-| `price_observed` | Observed price or average revenue per unit | To be supplied | | Currency/unit |
-| `quantity_observed` | Observed quantity sold or supplied | To be supplied | | Units |
-| `total_revenue` | Revenue for the analysis period | To be supplied | | Currency |
-| `total_explicit_cost` | Accounting costs for the analysis period | To be supplied | | Currency |
-| `fixed_cost` | Costs that do not vary with modeled output | To be supplied | | Currency/period |
-| `variable_cost` | Total variable cost at modeled output | To be supplied | | Currency |
-| `marginal_cost` | Incremental cost of one additional unit | To be supplied | | Currency/unit |
-| `average_total_cost` | Total cost per unit at modeled output | To be supplied | | Currency/unit |
-| `average_variable_cost` | Variable cost per unit at modeled output | To be supplied | | Currency/unit |
-| `market_price_competitive` | Competitive benchmark price | To be supplied | | Currency/unit |
-| `market_quantity_competitive` | Competitive benchmark quantity | To be supplied | | Units |
+TOTAL_LABOR_HRS =
+TOM_LABOR_HRS(TOM_BEDS) +
+CAR_LABOR_HRS(CAR_BEDS) +
+MES_LABOR_HRS(MES_BEDS)
 
-### 4. Derived Inputs
+FARMER_HOURS_USED =
+MIN(TOTAL_LABOR_HRS, FARMER_HOURS)
 
-Compute and label the following intermediate values:
+TEMP_HOURS_USED =
+MAX(0, TOTAL_LABOR_HRS − FARMER_HOURS)
 
-| Named Derived Input | Formula |
-|---------------------|---------|
-| `accounting_profit` | `total_revenue - total_explicit_cost` |
-| `total_cost_from_unit_costs` | `fixed_cost + variable_cost` |
-| `average_revenue` | `total_revenue / quantity_observed` |
-| `competitive_quantity_gap` | `quantity_observed - market_quantity_competitive` |
-| `competitive_price_gap` | `price_observed - market_price_competitive` |
+TEMP_WORKERS_USED =
+CEILING(TEMP_HOURS_USED ÷ TEMP_WORKER_HOURS)
 
-When a derived input cannot be calculated from supplied data, mark it `N/A` and explain why. Do not replace it with an estimate without documenting the assumption.
+FARMER_LABOR_COST = FARMER_HOURS_USED x FARMER_RATE
 
-### 5. Model Definitions & Formulas
+TEMP_LABOR_COST = TEMP_HOURS_USED x TEMP_RATE
 
-#### Perfect competition model
+TOTAL_LABOR_COST = FARMER_LABOR_COST + TEMP_LABOR_COST
 
-Use the competitive model only when its assumptions are stated and assessed. The baseline conditions to evaluate are many buyers and sellers, comparable products, limited individual price-setting power, and sufficiently low barriers to entry or exit.
+BLENDED_LABOR_RATE =
+IF(TOTAL_LABOR_HRS = 0, 0, TOTAL_LABOR_COST ÷ TOTAL_LABOR_HRS)
 
-| Measure | Formula or condition | Unit |
-|---------|---------------------|------|
-| Competitive firm output condition | `price_observed = marginal_cost` at the profit-maximizing output | Currency/unit |
-| Short-run continue-production condition | `price_observed >= average_variable_cost` | Boolean/condition |
-| Long-run zero-economic-profit condition | `price_observed = average_total_cost` | Currency/unit |
-| Competitive price gap | `price_observed - market_price_competitive` | Currency/unit |
-| Competitive quantity gap | `quantity_observed - market_quantity_competitive` | Units |
+TOM_REVENUE(q) =
+q × TOM_PRICE
 
-### 6. Validation Rules
+CAR_REVENUE(q) =
+q × CAR_PRICE
 
-The executor must verify:
+MES_REVENUE(q) =
+q × MES_PRICE
 
-- All monetary values use the same currency and price basis.
-- All quantities and prices use compatible periods and units.
-- `total_revenue` reconciles to `price_observed * quantity_observed` when both are intended to describe the same observation.
-- `total_cost_from_unit_costs` reconciles to the applicable cost total or the difference is explained.
-- Perfect-competition conclusions are not presented without an explicit assumption assessment.
-- Modeled quantities, prices, and costs are nonnegative unless the model explicitly allows otherwise.
-- The firm's output decision is checked against feasible quantity, capacity, shutdown, and break-even conditions.
-- Every external claim, value, table, and figure has a source or is labeled as an assumption/model illustration.
-- Sensitivity analysis identifies which assumptions materially change the conclusion.
-- Re-running the calculation from the documented inputs reproduces the reported outputs.
+TOTAL_REVENUE =
+TOM_REVENUE(TOM_BEDS) +
+CAR_REVENUE(CAR_BEDS) +
+MES_REVENUE(MES_BEDS)
 
----
+TOTAL_FERTILIZER_COST =
+(TOM_BEDS × TOM_FERT_COST) +
+(CAR_BEDS × CAR_FERT_COST) +
+(MES_BEDS × MES_FERT_COST)
 
-## Part B — Analysis Specification
+TOTAL_FIXED_COST =
+BED_FIXED_COST
 
-### 7. Analysis Requirements
+TOTAL_VARIABLE_COST =
+TOTAL_LABOR_COST +
+TOTAL_FERTILIZER_COST
 
-For each engagement, address:
+TOTAL_PROFIT =
+TOTAL_REVENUE − TOTAL_VARIABLE_COST − TOTAL_FIXED_COST
 
-1. **Question:** What decision or economic relationship is being examined?
-2. **Model choice:** Why is the selected model appropriate, and where does it simplify reality?
-3. **Evidence:** Which observations support the analysis, and what are their sources and limitations?
-4. **Results:** What do the calculations show, including units and uncertainty or sensitivity?
-5. **Implications:** What does the result mean for the company, market, consumers, or other stakeholders?
-6. **Limitations:** Which assumptions, missing data, or identification issues could change the conclusion?
+TOTAL_COST(q) =
+LABOR_COST(q) + FERTILIZER_COST(q)
 
-Connect the model's assumptions to the observed market evidence. Explain how price-taking behavior, marginal cost, average cost, barriers to entry, and long-run adjustment interact. Avoid treating correlation as causation without a stated identification strategy.
+MC(q) =
+TOTAL_COST(q) - TOTAL_COST(q-1)
 
-### 8. Comparative Analysis
+TOTAL_LABOR_USED =
+TOTAL_LABOR_HRS
 
-Compare the observed or selected case with the perfect-competition benchmark and at least two plausible sensitivity scenarios.
+TOTAL_LABOR_AVAILABLE =
+FARMER_HOURS +
+(MAX_TEMP_WORKERS × TEMP_WORKER_HOURS)
 
-Explain whether a difference is driven by price, quantity, cost, barriers to entry, product differentiation, market concentration, or an assumption in the model.
+UNUSED_LABOR_HOURS =
+TOTAL_LABOR_AVAILABLE − TOTAL_LABOR_USED
 
-### 9. Strategic Recommendations
+UNUSED_BEDS =
+TOTAL_BEDS −
+(TOM_BEDS + CAR_BEDS + MES_BEDS)
 
-Provide 3-5 recommendations only when the evidence supports action. Each recommendation must:
+## Conventions
 
-- Identify a specific decision or owner.
-- State the economic mechanism it addresses.
-- Cite the result or source supporting it.
-- Identify an implementation constraint or risk.
-- Include a measurable follow-up indicator where practical.
+- Bed allocations must be whole integers.
+- Negative bed allocations are not allowed.
+- Total allocated beds may not exceed TOTAL_BEDS.
+- Crop allocations may not exceed crop-specific maximums.
+- Unused beds are permitted.
+- Labor hours may remain unused.
+- DIM_PCT compounds labor hours and does not reduce crop yield, price per bed, revenue per bed, or fertilizer cost per bed. Revenue and fertilizer cost are linear in bed quantity.
+- All currency values are reported in USD.
+- Labor hours are rounded to two decimal places for reporting only.
+- Farmer labor hours are consumed before temporary worker hours.
+- Temporary workers cover labor requirements beyond FARMER_HOURS.
+- Labor costs are allocated to the P&L using the blended labor rate.
 
-Recommendations must distinguish evidence-based conclusions from proposed actions and must not overstate the precision of the model.
+## Validation rules
 
-### 10. Output Format
+Structural Checks
 
-Each completed engagement should contain, in this order:
+- No spreadsheet error cells (#n/A, #VALUE!, #DIV/0!, etc.).
+- Every calculated cell contains a formula.
+- Every input cell contains a constant value.
+- Total allocated beds <= TOTAL_BEDS.
+- Crop allocations <= crop maximums.
 
-1. Title and decision question.
-2. Executive summary of the finding.
-3. Scope, period, units, and assumptions.
-4. Sources and data provenance.
-5. Model and formula definitions.
-6. Validation checks.
-7. Results tables and figures.
-8. Sensitivity analysis.
-9. Interpretation and limitations.
-10. Strategic recommendations.
-11. References.
-12. Reproduction instructions.
+Acceptance Criteria
 
-Use concise professional prose for an instructor or business audience. Present formulas in named-variable notation and include units in table headings. Figures must have titles, axis labels, legends where needed, and source notes. Do not include unsupported statistics or claims.
+- Optimal mix = 10 tomatoes, 20 carrots, 30 mesclun.
+- Season profit ≈ $42,762.
+- LABOR_HRS(1) for tomatoes = 99.
 
----
+## Outputs
 
-## References
+OPT_TOM_BEDS
+OPT_CAR_BEDS
+OPT_MES_BEDS
 
-No external sources have been selected for this portfolio specification. Each engagement must add its actual references here and in its engagement README before analysis is considered complete. At minimum, document:
+TOTAL_REVENUE
+TOTAL_VARIABLE_COST
+TOTAL_FIXED_COST
+TOTAL_PROFIT
 
-- Primary company filings, operating reports, or official market data, where applicable.
-- Government, regulatory, or industry sources for market and policy facts.
-- Course materials used for definitions or model assumptions.
-- Any dataset, survey, forecast, or secondary source used in calculations.
+TOTAL_LABOR_USED
+TOTAL_LABOR_AVAILABLE
+UNUSED_LABOR_HOURS
 
-Record the source title, publisher, publication date, URL or file path, access date, and the specific values or claims supported by the source.
+TEMP_WORKERS_USED
+UNUSED_BEDS
+
+## Audit findings
+
+Added AFTER the build. For each check: what you checked, what you found, what
+you did about it.
