@@ -1,56 +1,48 @@
 <!-- PR TARGET: https://github.com/wokumura-uhm/wade-okumura | Stage 1.2 -->
 # Stage 1.2 review — spec, build, audit
 
+> **Hurricane Lowell comes first.** If you are preparing, sheltering, travelling, or helping somebody else do one of those, put this review down — it will keep, and nothing in it needs your attention while that does. Look after your people first; we will sort the coursework out afterwards.
+
 **Spec:** [`capabilities/marginal-analysis/spec.md`](https://github.com/wokumura-uhm/wade-okumura/blob/main/capabilities/marginal-analysis/spec.md)
 
-> Graded 2026-09-02, first pass. You did the file move I asked for on 31 August — the specification is now at capabilities/marginal-analysis/spec.md and the duplicate perfect-competition folder is gone — and I confirmed the content moved intact. That fixed your Stage 0. What it also revealed is a problem I should have caught last time and did not: the document is a general template for analysing a company, not a specification of this farm's model. I judged it by its length before and that was my error.
+> Re-graded 2026-09-08 against the specification and workbook you committed. The last pass was a hold with almost nothing at the graded path. This one lands the published profit to the cent, and your Checks sheet does something no other workbook in this cohort does — it counts its own errors instead of asserting it has none.
 
 | Criterion | Where it stands |
 |---|---|
-| Spec completeness — inputs, structure, calculation flow | The document is well organised and the process it describes is sound — separate observations from assumptions, state units and price basis, label model illustrations, do not silently infer missing values. What it does not contain is this model. The Data Inputs table has fourteen rows and every Value cell is blank with the source listed as "To be supplied": market_name, price_observed, quantity_observed, marginal_cost, average_variable_cost. None of the case's numbers are in it — not the 64 beds, the three crops, the $8,800, the 2.50 hours per bed-week, the 10 percent compounding, the 20-bed cap, the $20,000 fixed cost, the farmer's 720 hours. There is no labor function, no sheet structure, no named ranges, and no statement of what the workbook computes. Nine points for the framework, which is real; a builder cannot build a workbook from it because it does not describe one. |
-| Spec validation rules | Ten rules and several are genuinely good ones: units and price basis must be consistent, total revenue must reconcile to price times quantity, sensitivity analysis must identify which assumptions change the conclusion, and re-running from documented inputs must reproduce the reported outputs. That last one is the definition of reproducibility and most people in this cohort did not write it. Eight points because none of them can fail against this model — there is no hand-check anchor, no published check figure, no tolerance, and nothing that names a quantity this workbook would produce. |
-| Workbook satisfies the contract | No workbook. You removed the xlsx files on 31 August. None was due, so nothing is lost — but nothing has been submitted for this stage yet either, and the specification the workbook is meant to be built from does not exist. |
-| Audit note | No audit section, which is correct with no build behind it. |
+| Spec completeness — inputs, structure, calculation flow | Twenty-six named inputs with unit and source, the derived rates given as derivations, and carrot hours carried at full precision with a note that the case displays the rounded value. Five sheets, each described by what it must contain. Complete and buildable. |
+| Spec validation rules | Structural checks and acceptance criteria are both there and both stated before the build, with a tolerance on the profit figure. Thinner than the strongest specs here: the Solver path-independence test and the Farm Profit Lab cross-check are both things you ran, but neither was written down as a rule in advance. |
+| Workbook satisfies the contract | Lands $42,761.66 and 5,277.2161 labor hours — exact against my model. Formulas reference named ranges throughout. Been through Excel, so the cached values are real. The acceptance checks are gated behind a RUN control so they report NOT EVALUATED rather than falsely failing before Solver runs, which is a genuinely good idea. |
+| Audit note | Full marks. Six findings, each with an explicit statement of what the check would catch, both Solver starting points recorded, an independent cross-check, an input-perturbation test, and the marginal-cost dip observed with its explanation deliberately reserved for the next stage. |
 
-> The spec-side criteria are summarised above. Held, not entered — nothing is recorded against you, and this is recoverable.
+### The cell that actually checks
 
-### The distinction that matters here, and it is not a small one
+Checks!C2 contains a SUMPRODUCT over ISERROR across four named ranges spanning three sheets, and reports the count. If a #REF! appeared anywhere in those ranges tomorrow, that cell would change and the row would fail.
 
-There are two different documents you could write and they have almost the same name.
+This sounds like a small thing. It is not. The most common way a validation sheet fails is by containing a row that cannot fail — a cell holding a literal zero compared against zero, reporting PASS because it was told to rather than because anything was examined. I have found that pattern in this cohort's workbooks more than once, including in the strongest one.
 
-One is a methodology: how a perfect-competition analysis should be conducted in general, what has to be sourced, what has to be labelled an assumption, what makes a conclusion defensible. That is what you have written, and it is a decent piece of writing.
+You also counted formula cells and constant cells with array formulas, so "every calculated cell contains a formula" is a measurement rather than a claim. That is the right instinct and it is the difference between a checklist and an audit.
 
-The other is a build contract: this specific model, with these specific inputs and their values, this labor function, these sheets, these named ranges, these acceptance figures. Someone who has never seen the case should be able to open it and produce a workbook that agrees with yours to the cent. That is what Stage 1.2 grades, and it is what your workbook has to be built from.
+### What changed since the last pass
 
-The test is concrete: hand your document to somebody who has not read the case and ask them to build the model. Right now they cannot start, because the first thing they need is a number and there are no numbers in it.
+The previous pass could find a specification at the graded path and essentially nothing else. What is there now is a complete, precise, buildable document and a workbook that satisfies it.
 
-### What the specification has to contain, concretely
+The single decision that made the difference is in your input table: CAR_HRS carried as 0.833333333333333 with the note that the case displays 0.833, and both wage rates given as derivations from the salaries rather than as the printed $34.72 and $17.36.
 
-- Inputs, with values. WEEKS 36, TOTAL_BEDS 64, FIXED_COSTS $20,000, FARMER_SALARY $50,000, FARMER_FIELD_HRS 720, TEMP_COST_EACH $25,000, TEMP_HRS_EACH 1,440, MAX_TEMPS 4. Then per crop: cap, price per bed, labor hours per bed-week, fertilizer per bed, diminishing-returns rate. Every one a named range, every one with its source.
+Three other students hit a $13 gap against the published profit and only one of them closed it. You never opened it, because you wrote the exact values into the contract before you built. That is the whole reason your profit lands on $42,761.66 rather than near it.
 
-- The labor function, written out. LABOR_HRS(q) = q × hrs-per-bed-week × 36 × (1 + DIM)^q. The exponent on q is the thing most likely to be got wrong in this case, so say it explicitly.
+### Where the remaining marks are
 
-- The costing order. The farmer's 720 hours are consumed first across all crops, then temporary labor covers the remainder. Rates are derived — 50,000/1,440 and 25,000/1,440 — not the rounded $34.72 and $17.36, because the rounding moves the answer.
+Your validation-rules section lists what the workbook must satisfy. What it does not do is say what happens when a rule fails.
 
-- The sheet structure. Which sheets, what each holds, where the three decision cells live, and the Solver setup.
+Compare two of your own audit findings. You ran Solver from 0/0/0 and 20/0/0 and both converged — but nothing in the spec said to run it twice, or what to do if the two runs had disagreed. You cross-checked bed 10 against the Farm Profit Lab and found a $1 display difference — but nothing in the spec said to cross-check, or what size of difference would have been a finding rather than rounding.
 
-- Validation rules with numbers in them. LABOR_HRS(1) for tomatoes = 99 hours exactly. Optimal mix 10 / 20 / 30. Season profit $42,762 within $5. Standalone crossings 10 / 10 / 6. Each with a tolerance and a reason for the tolerance.
+You did both of the right things. The specification just does not know you did. Write those two as rules with their tolerances and their failure responses, and the spec-side criteria are essentially full.
 
-### What to keep from what you wrote
+### One observation to carry forward
 
-Do not throw the document away. Three of its rules belong in the new one almost verbatim: that units and price basis must be consistent and stated; that every figure identifies its source or is labelled a model illustration; and that re-running the calculation from the documented inputs must reproduce the reported outputs.
+Your last audit finding records that tomato marginal cost decreases around six beds before increasing again, and explicitly reserves the cause for the analysis stage.
 
-That third one is the whole stage in a sentence, and you wrote it before anyone told you to. Move it into a specification that has numbers in it and it becomes a rule you can actually test.
-
-### Four days, in order
-
-- Today: the inputs table with real values, and the labor function. That is the half of the specification that unblocks everything else.
-
-- Tomorrow: structure, costing order, validation rules with the check figures in them. Commit it before you build anything — the commit order is part of what the stage is grading.
-
-- Then build, run Solver from two different starting points, and write the audit.
-
-Your Stage 1.1 brief needs a hypothesis with three numbers in it and a falsification section, and that is graded separately. If both stages at once is not realistic this week, tell me rather than disappearing on it — I would much rather work out a sequence with you now than grade a gap later.
+That is exactly the right boundary between building and explaining, and you are one of the few people who drew it deliberately rather than by running out of time. Hold on to the observation — the mechanism behind it is the most interesting result in this model, and the next stage asks for it directly.
 
 ---
 
@@ -59,8 +51,8 @@ Your Stage 1.1 brief needs a hypothesis with three numbers in it and a falsifica
 Treat this PR the way an analyst treats feedback from a senior reviewer — a review is a proposal to engage with, not a checklist to rubber-stamp.
 
 1. **Read it yourself first.** Form your own view before you change anything. Disagreeing *with a documented reason* is a legitimate, senior response.
-2. **Stress-test it with an LLM.** Paste this review and your spec into your assistant and ask it to (a) explain anything you are unsure of, and (b) argue the *other side*.
-3. **Then correct the spec, not the workbook.** When a check fails, you fix the specification and regenerate, so the document keeps describing what was actually built.
+2. **Stress-test it with an LLM.** Paste this review and your spec into your assistant and ask it to (a) explain anything you are unsure of, and (b) argue the *other side* — where might the reviewer be wrong, and what would you give up by making each change.
+3. **Then correct the spec, not the workbook.** This is the rule that makes the stage work: when a check fails, you fix the specification and regenerate, so the document keeps describing what was actually built.
 4. **Close the loop.** Reply in this thread with what you changed and what you pushed back on, then commit and push.
 
 *Your score and the per-criterion breakdown are in your Lamaku comment, not here — this repository is public.*
