@@ -95,9 +95,7 @@ Columns:
 - Event Name (if applicable)
 - Days From Event
 
-Purpose:
-
-Evaluate whether major Federal Reserve events correspond to significant changes in Treasury yields.
+Purpose: Evaluate whether major Federal Reserve events correspond to significant changes in Treasury yields.
 
 ### Sheet 3 - Japan 10-Year Government Bond Yield
 
@@ -110,9 +108,7 @@ Columns:
 - Event Name (if applicable)
 - Days From Event
 
-Purpose:
-
-Measure Japanese bond-market response to policy events.
+Purpose: Measure Japanese bond-market response to policy events.
 
 ### Sheet 4 - USDJPY Exchange Rate
 
@@ -125,15 +121,45 @@ Columns:
 - Event Name (if applicable)
 - Days From Event
 
-Purpose:
+Purpose: Measure currency-market response to policy events.
 
-Measure currency-market response to policy events.
+## Figures Planned
 
-## Calculation logic
+### Figure 1
 
-## Conventions
+US 10-Year Yield vs Japan 10-Year Yield
 
-## Validation rules
+Question: Do Japanese yields move in response to U.S. yields?
+
+### Figure 2
+
+US/JPY vs Yield Spread
+
+Question: Does a widening interest-rate differential weaken the yen?
+
+### Figure 3
+
+Event Study Chart
+
+Overlay:
+
+- Federal Reserve events
+- Bank of Japan events
+- JGB yield
+- USD/JPY
+
+Question: Which central bank generates the larger market reaction?
+
+## Success Criteria
+
+The analysis will:
+
+- Identify major monetary-policy events over the prior 12 months.
+- Measure changes in JGB yields after Federal Reserve and BOJ actions.
+- Measure changes in USD/JPY after Federal Reserve and BOJ actions.
+- Compare the magnitude of market reactions.
+- Determine whether evidence supports or rejects the hypothesis.
+- Provide a policy recommendation supported by the analysis.
 
 ## Outputs
 
