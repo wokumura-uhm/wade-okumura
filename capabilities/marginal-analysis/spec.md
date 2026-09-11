@@ -85,6 +85,7 @@ Five sheets.
     - MES_BEDS <= MES_MAX_BEDS
     - TOM_BEDS + CAR_BEDS + MES_BEDS <= TOTAL_BEDS
     - TEMP_HOURS_USED <= MAX_TEMP_WORKERS x TEMP_WORKER_HOURS
+    - TOTAL_LABOR_COST <= (FARMER_SALARY + (MAX_TEMP_WORKERS x TEMP_COST_EACH))
     - All bed allocations are integers.
 
 - Checks
@@ -199,19 +200,73 @@ TOTAL_BEDS −
 
 ## Validation rules
 
-Structural Checks
+### VR-001 Formula Integrity
 
-- No spreadsheet error cells (#n/A, #VALUE!, #DIV/0!, etc.).
-- Every calculated cell contains a formula.
-- Every input cell contains a constant value.
-- Total allocated beds <= TOTAL_BEDS.
-- Crop allocations <= crop maximums.
+Test: All calculated cells shall contain formulas.
 
-Acceptance Criteria
+Expected Result: Formula count equals expected count.
 
-- Optimal mix = 10 tomatoes, 20 carrots, 30 mesclun.
-- Season profit = $42,762 +/- $5.
-- LABOR_HRS(1) for tomatoes = 99.
+Failure Response: Record audit finding and investigate overwritten formulas.
+
+### VR-002 Error-Free Workbook
+
+Test: Validation sheet checks all monitored ranges for errors using SUMPRODUCT(ISERROR(...)).
+
+Expected Result: Error count = 0.
+
+Failure Response: Record audit finding and identify the sheet, range, and formula causing the error.
+
+### VR-003 Solver Convergence
+
+Test: Run Solver from at least two materially different starting allocations:
+
+- 0 / 0 / 0
+- 20 / 0 / 0
+
+Expected Result: Both runs converge to the same bed allocation and profit value.
+
+Tolerance:
+
+- Allocation difference <= 0.01 beds
+- Profit difference <= $1.00
+
+Failure Response: Record audit finding and investigate model sensitivity or Solver configuration.
+
+### VR-004 External Cross-Check
+
+Test: Validate at least one known model output against the Farm Profit Lab.
+
+Expected Result: Cross-checked values agree with Farm Profit Lab reference values.
+
+Tolerance: Difference <= $1.00
+
+Failure Response: Record audit finding. Investigate input precision, formula implementation, and rounding assumptions.
+
+### VR-005 Constraint Compliance
+
+Test: Verify optimal solution satisfies:
+
+- TOM_BEDS <= TOM_MAX_BEDS
+- CAR_BEDS <= CAR_MAX_BEDS
+- MES_BEDS <= MES_MAX_BEDS
+- TOM_BEDS + CAR_BEDS + MES_BEDS <= TOTAL_BEDS
+- TEMP_HOURS_USED <= MAX_TEMP_WORKERS x TEMP_WORKER_HOURS
+- TOTAL_LABOR_COST <= (FARMER_SALARY + (MAX_TEMP_WORKERS x TEMP_COST_EACH))
+- Bed allocations are integers
+
+Expected Result: No constraint violation.
+
+Failure Response: Model fails validation and must be corrected before analysis.
+
+### Validation Tolerances
+
+Monetary values: +/- $1.00
+
+Labor: +/- 0.01 hours
+
+Bed allocations: +/- 0.01 beds
+
+Any variance outside tolerance constitutes an audit finding.
 
 ## Outputs
 
@@ -249,6 +304,8 @@ UNUSED_BEDS
    - MES_BEDS = 30
    - TOTAL_PROFIT = $42,762 ± $5
    - TOM_LABOR_HRS(1) = 99
+   - All validation rules pass.
+   - No audit findings exceed specified tolerances.
 
 ## Audit findings
 
