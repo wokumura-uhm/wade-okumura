@@ -5,6 +5,7 @@ audience: student
 fields_required: [date, goal, prompt, tool, output_location, notes]
 naming_convention: "prompt-log.md (one per project, lives in deliverables/)"
 courses: [BUS-313, BUS-314, BUS-620, BUS-629, FIN-321, BUS-122B]
+started: 2026-08-30
 ---
 
 # Prompt Log
@@ -25,3 +26,15 @@ courses: [BUS-313, BUS-314, BUS-620, BUS-629, FIN-321, BUS-122B]
 | 2026-09-10 | Analyze draft spec using the instructor instructions | "Look at my incomplete spec I just uploaded and provide feedback based on the included URL from the instructor" | Microsoft Copilot | Output in Copilot interface | Analyzed URL and produced feedback on spec. |
 | 2026-09-10 | Create a draft paper based on my unfinished spec and completed brief | "Take my draft spec and completed brief and generate a draft paper" | Microsoft Copilot | Output in Copilot interface | Analyzed  spec and brief and generated markdown file. |
 | 2026-09-10 | Update my marginal-analysis spec.md based on instructor feedback | "Take my spec.md and update it based on instructor feedback" | Microsoft Copilot | Output in Copilot interface | Analyzed marginal-analysis spec and recommended updates. |
+| 2026-09-13 | Interpreting tomato MC vs price | "Take my 3 graphs and tell me what the tomato marginal cost and price are doing" | Microsoft Copilot | Output in Copilot interface | Analyzed MC vs price graphs and provided analysis. |
+| 2026-09-13 | Understanding binding constraints/shadow prices | "What are the binding constraints and shadow prices of my project" | Microsoft Copilot | Output in Copilot interface | Analyzed the model outputs and explained why the carrot and mesclun constraints were binding, how shadow prices should be interpreted, and which expansion opportunity created greater value. |
+| 2026-09-13 | Reviewing the analysis | "Take my perfect-competition-analysis.md and provide feedback" | Microsoft Copilot | Output in Copilot interface | Analyzed perfect-competition-analysis.md and recommended updates. |
+| 2026-09-13 | Reviewing the memo | "Take my perfect-competition-memo.md and provide feedback" | Microsoft Copilot | Output in Copilot interface | Analyzed perfect-competition-memo.md and recommended updates. |
+
+## Perfect Competition Reflection
+
+AI was most helpful in helping me interpret the optimizer outputs and connect the workbook results to economic concepts such as marginal cost, shadow prices, and binding constraints. The explanations helped me understand why tomatoes stopped at approximately 10 beds and why the carrot and mesclun constraints remained binding.
+
+I did not rely on AI outputs without verification. All recommendations were checked against the workbook calculations and charts before being included in the analysis. In particular, I verified where marginal cost crossed market price and reviewed the binding-constraint calculations before drawing conclusions.
+
+The most useful aspect of AI was helping translate spreadsheet outputs into economic explanations. The workbook remained the authoritative source for all calculations, figures, and final recommendations.

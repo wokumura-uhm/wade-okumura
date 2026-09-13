@@ -6,13 +6,16 @@ This capability analyzes marginal cost, marginal revenue, labor utilization, and
 
 ## Deliverables
 
-- spec.md - model specification and audit findings
-- model.xlsx - completed optimization workbook
+- `spec.md` - Model specification and audit findings
+- `model.xlsx` - Completed optimization workbook
+- `perfect-competition-analysis.md` - Economic analysis and figures
+- `perfect-competition-memo.md` - Executive planting recommendation
 
 ## Exercised In
 
-Perfect Competition – Stage 2: Spec, Build, Audit
+- Perfect Competition - Stage 2: Spec, Build, and Audit
+- Perfect Competition - Stage 3: Analyze and Report Findings
 
 ## Results
 
-The model determines the profit-maximizing allocation of tomato, carrot, and mesclun beds using nonlinear labor requirements, labor constraints, land constraints (beds), and cost structures.
+The model determines the profit-maximizing allocation of tomato, carrot, and mesclun beds using nonlinear labor requirements, labor constraints, land constraints, and cost structures.
