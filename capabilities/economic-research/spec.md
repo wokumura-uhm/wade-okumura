@@ -66,6 +66,18 @@ The vent window will be limited to one or two Tokyo trading days surrounding eac
 
 The timing treatment for FOMC and BOJ announcements will be defined explicitly after mapping each announcement to the corresponding Tokyo trading session.
 
+## Sample Design Considerations
+
+The proposed sample overlaps the final period of Bank of Japan Yield Curve Control (YCC) and the subsequent policy transition.
+
+Because YCC may affect observed 10-year Japanese government bond yield movements, the analysis will evaluate whether:
+
+1. The sample should be restricted to post-YCC observations, or
+
+2. The YCC exit should be treated as a structural break and analyzed separately.
+
+This decision will be finalized before data collection and analysis.
+
 ## Structure
 
 ### Sheet 1 - Inputs
