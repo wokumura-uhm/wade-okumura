@@ -162,16 +162,30 @@ Overlay:
 
 Question: Which central bank generates the larger market reaction?
 
+## Hypothesis Evaluation Criteria
+
+The hypothesis will be considered supported if the mean absolute 1-day change in the Japanese 10-year government bond yield around Federal Reserve announcements exceeds the mean absolute 1-day change around Bank of Japan announcements.
+
+The analysis will report:
+
+- Mean absolute yield change for FOMC events
+- Mean absolute yield change for BOJ events
+- Standard deviation of each event group
+- Difference between group means
+
+The hypothesis will be rejected if:
+
+- BOJ event reactions exceed FOMC event reactions, or
+- JGB yields move independently of U.S. Treasury yields.
+
 ## Success Criteria
 
 The analysis will:
 
-- Identify major monetary-policy events over the prior 12 months.
-- Measure changes in JGB yields after Federal Reserve and BOJ actions.
-- Measure changes in USD/JPY after Federal Reserve and BOJ actions.
-- Compare the magnitude of market reactions.
-- Determine whether evidence supports or rejects the hypothesis.
-- Provide a recommendation supported by the analysis.
+- Identify major monetary-policy events during the sample period.
+- Measure market responses in JGB yields and USD/JPY.
+- Evaluate the hypothesis using the predefined criteria.
+- Provide a recommendation for a corporate treasurer responsible for managing interest-rate and foreign-exchange risk exposure.
 
 ## Outputs
 
