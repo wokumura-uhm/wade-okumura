@@ -60,13 +60,11 @@ One row per event.
 
 ## Analysis Window
 
-For each policy event:
+For each policy event the events will be measured using Tokyo trading days rather than calendar days.
 
-- 10 trading days before event
-- Event day
-- 10 trading days after event
+The vent window will be limited to one or two Tokyo trading days surrounding each announcement in order to isolate the market reaction and avoid overlap with other central-bank meetings.
 
-This creates a consistent event-study methodology.
+The timing treatment for FOMC and BOJ announcements will be defined explicitly after mapping each announcement to the corresponding Tokyo trading session.
 
 ## Structure
 
