@@ -19,7 +19,9 @@ The analysis will measure market reactions to major monetary policy events and e
 - U.S. Treasury yields
 - USD/JPY exchange rates
 
-The goal is to determine whether Japanese markets remain primarily influenced by U.S. monetary policy despite the Bank of Japan’s recent policy normalization.
+The goal is to determine whether Japanese markets remain primarily influenced by U.S. monetary policy despite the Bank of Japan’s recent policy normalization and to provide a recommendation for a corporate treasurer responsible for managing interest-rate and foreign-exchange risk exposure.
+
+The intended audience is a corporate treasurer responsible for managing interest-rate and foreign-exchange risk exposure.
 
 ## Inputs — the named contract
 
@@ -169,7 +171,7 @@ The analysis will:
 - Measure changes in USD/JPY after Federal Reserve and BOJ actions.
 - Compare the magnitude of market reactions.
 - Determine whether evidence supports or rejects the hypothesis.
-- Provide a policy recommendation supported by the analysis.
+- Provide a recommendation supported by the analysis.
 
 ## Outputs
 
