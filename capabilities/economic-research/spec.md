@@ -34,7 +34,7 @@ One row per event.
 | Event Name | Name of policy event |
 | Event Date | Date of event |
 | Event Type | Federal Reserve or Bank of Japan |
-| Policy Action | Rte change, forward guidance, QT, YCC adjustment, bond purchase change |
+| Policy Action | Rate change, forward guidance, QT, YCC adjustment, bond purchase change |
 | Source | Official source |
 
 ## Data Sources
@@ -43,7 +43,7 @@ One row per event.
 
 - FOMC Statements
 - FOMC Press Conferences
-- Federal Reerve releases
+- Federal Reserve releases
 - FRED
 
 ### Bank of Japan
@@ -54,31 +54,29 @@ One row per event.
 
 ### Market Data
 
-- FRED
-- BOJ
-- Investing.com
-- Stooq
-- Yahoo Finance
+- FRED (USD/JPY)
+- BOJ Statistical Data
+- Japan Ministry of Finance Yield Curve Data
 
 ## Analysis Window
 
 For each policy event the events will be measured using Tokyo trading days rather than calendar days.
 
-The vent window will be limited to one or two Tokyo trading days surrounding each announcement in order to isolate the market reaction and avoid overlap with other central-bank meetings.
+The event window will be limited to one or two Tokyo trading days surrounding each announcement in order to isolate the market reaction and avoid overlap with other central-bank meetings.
 
-The timing treatment for FOMC and BOJ announcements will be defined explicitly after mapping each announcement to the corresponding Tokyo trading session.
+The analysis will map each policy announcement to the Tokyo trading session in which market participants could first react.
+
+FOMC announcements occurring after the Tokyo market close will be assigned to the next Tokyo trading day.
+
+BOJ announcements occurring during Tokyo trading hours will be assigned to the same Tokyo trading day.
+
+All event windows will be measured relative to that assigned Tokyo trading day.
 
 ## Sample Design Considerations
 
 The proposed sample overlaps the final period of Bank of Japan Yield Curve Control (YCC) and the subsequent policy transition.
 
-Because YCC may affect observed 10-year Japanese government bond yield movements, the analysis will evaluate whether:
-
-1. The sample should be restricted to post-YCC observations, or
-
-2. The YCC exit should be treated as a structural break and analyzed separately.
-
-This decision will be finalized before data collection and analysis.
+Because YCC may affect observed 10-year Japanese government bond yield movements, the YCC exit will be treated as a structural break. Market reactions before and after the Bank of Japan's exit from Yield Curve Control will be analyzed separately to evaluate whether policy transmission changed following normalization.
 
 ## Structure
 
@@ -98,7 +96,7 @@ Contains no formulas.
 
 ### Sheet 2 - U.S. 10-Year Treasury Yield
 
-Daily observations covering the 12-month analysis period.
+Daily observations covering the three-year analysis period.
 
 Columns:
 
@@ -111,7 +109,7 @@ Purpose: Evaluate whether major Federal Reserve events correspond to significant
 
 ### Sheet 3 - Japan 10-Year Government Bond Yield
 
-Daily observations covering the 12-month analysis period.
+Daily observations covering the three-year analysis period.
 
 Columns:
 
@@ -124,7 +122,7 @@ Purpose: Measure Japanese bond-market response to policy events.
 
 ### Sheet 4 - USDJPY Exchange Rate
 
-Daily observations covering the 12-month analysis period.
+Daily observations covering the three-year analysis period.
 
 Columns:
 
@@ -189,7 +187,25 @@ The analysis will:
 
 ## Outputs
 
+1. Event dataset
+2. Treasury yield dataset
+3. JGB yield dataset
+4. USD/JPY dataset
+5. Event-study figures
+6. Final research paper
+7. Corporate treasury recommendation
+
 ## Acceptance Test Procedure
+
+The capability passes if:
+
+1. All FOMC and BOJ events are collected.
+2. Tokyo trading-day windows are correctly assigned.
+3. JGB yield changes are calculated for all events.
+4. Mean and standard deviation are reported.
+5. The hypothesis is evaluated using the predefined threshold.
+6. A recommendation for a corporate treasurer is provided.
+7. The final recommendation is logically supported by the empirical findings.
 
 ## Audit findings
 
