@@ -16,7 +16,11 @@ from pathlib import Path
 from datetime import datetime
 import pandas as pd
 
-RAW_DIR = Path("../data/raw")
+# Define path variables
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent
+
+RAW_DIR = PROJECT_ROOT / "data" / "raw"
 
 # Define the analysis period and retrieval date
 ANALYSIS_START = "2023-09-01"
@@ -84,7 +88,26 @@ def collect_fomc_events():
     Collect FOMC policy events.
     """
 
-    df = pd.DataFrame(columns=FOMC_COLUMNS)
+    events = [
+        {
+            "event_name": "FOMC Sep 2023",
+            "event_date": "2023-09-20",
+            "event_type": "Federal Reserve",
+            "policy_action": "Rate Hold",
+            "source": SOURCES["fomc"],
+            "retrieval_date": RETRIEVAL_DATE,
+        },
+        {
+            "event_name": "FOMC Nov 2023",
+            "event_date": "2023-11-01",
+            "event_type": "Federal Reserve",
+            "policy_action": "Rate Hold",
+            "source": SOURCES["fomc"],
+            "retrieval_date": RETRIEVAL_DATE,
+        },
+    ]
+
+    df = pd.DataFrame(events, columns=FOMC_COLUMNS)
 
     df.to_csv(FOMC_FILE, index=False)
 
