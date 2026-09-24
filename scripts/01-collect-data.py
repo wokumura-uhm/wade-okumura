@@ -88,38 +88,191 @@ def collect_fomc_events():
     Collect FOMC policy events.
     """
 
+    source = SOURCES["fomc"]
+
     events = [
-    {"event_name": "FOMC Sep 2023", "event_date": "2023-09-20", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Nov 2023", "event_date": "2023-11-01", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Dec 2023", "event_date": "2023-12-13", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-
-    {"event_name": "FOMC Jan 2024", "event_date": "2024-01-31", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Mar 2024", "event_date": "2024-03-20", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC May 2024", "event_date": "2024-05-01", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Jun 2024", "event_date": "2024-06-12", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Jul 2024", "event_date": "2024-07-31", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Sep 2024", "event_date": "2024-09-18", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Nov 2024", "event_date": "2024-11-07", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Dec 2024", "event_date": "2024-12-18", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-
-    {"event_name": "FOMC Jan 2025", "event_date": "2025-01-29", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Mar 2025", "event_date": "2025-03-19", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC May 2025", "event_date": "2025-05-07", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Jun 2025", "event_date": "2025-06-18", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Jul 2025", "event_date": "2025-07-30", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Sep 2025", "event_date": "2025-09-17", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Oct 2025", "event_date": "2025-10-29", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Dec 2025", "event_date": "2025-12-10", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-
-    {"event_name": "FOMC Jan 2026", "event_date": "2026-01-28", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Mar 2026", "event_date": "2026-03-18", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Apr 2026", "event_date": "2026-04-29", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Jun 2026", "event_date": "2026-06-17", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Jul 2026", "event_date": "2026-07-29", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
-    {"event_name": "FOMC Sep 2026", "event_date": "2026-09-16", "event_type": "Federal Reserve", "policy_action": "", "source": SOURCES["fomc"], "retrieval_date": RETRIEVAL_DATE},
+    {
+        "event_name": "FOMC Sep 2023",
+        "event_date": "2023-09-20",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Nov 2023",
+        "event_date": "2023-11-01",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Dec 2023",
+        "event_date": "2023-12-13",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Jan 2024",
+        "event_date": "2024-01-31",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Mar 2024",
+        "event_date": "2024-03-20",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC May 2024",
+        "event_date": "2024-05-01",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Jun 2024",
+        "event_date": "2024-06-12",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Jul 2024",
+        "event_date": "2024-07-31",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Sep 2024",
+        "event_date": "2024-09-18",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Cut",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Nov 2024",
+        "event_date": "2024-11-07",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Cut",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Dec 2024",
+        "event_date": "2024-12-18",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Cut",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Jan 2025",
+        "event_date": "2025-01-29",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Mar 2025",
+        "event_date": "2025-03-19",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC May 2025",
+        "event_date": "2025-05-07",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Jun 2025",
+        "event_date": "2025-06-18",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Jul 2025",
+        "event_date": "2025-07-30",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Sep 2025",
+        "event_date": "2025-09-17",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Oct 2025",
+        "event_date": "2025-10-29",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Dec 2025",
+        "event_date": "2025-12-10",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Jan 2026",
+        "event_date": "2026-01-28",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Mar 2026",
+        "event_date": "2026-03-18",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Apr 2026",
+        "event_date": "2026-04-29",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Jun 2026",
+        "event_date": "2026-06-17",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Jul 2026",
+        "event_date": "2026-07-29",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Hold",
+        "source": source
+    },
+    {
+        "event_name": "FOMC Sep 2026",
+        "event_date": "2026-09-16",
+        "event_type": "Federal Reserve",
+        "policy_action": "Rate Increase",
+        "source": source
+    }
     ]
 
-    df = pd.DataFrame(events, columns=FOMC_COLUMNS)
+    df = pd.DataFrame(events)
+
+    df["retrieval_date"] = RETRIEVAL_DATE
+
+    df = df[FOMC_COLUMNS]
 
     df.to_csv(FOMC_FILE, index=False)
 
