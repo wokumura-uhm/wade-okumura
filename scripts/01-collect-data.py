@@ -83,31 +83,56 @@ def collect_fomc_events():
     """
     Collect FOMC policy events.
     """
-    raise NotImplementedError
+
+    df = pd.DataFrame(columns=FOMC_COLUMNS)
+
+    df.to_csv(FOMC_FILE, index=False)
+
+    log(f"Created {FOMC_FILE}")
 
 def collect_boj_events():
     """
-    Collect BOJ policy events.
+    Create an empty BOJ events dataset.
     """
-    raise NotImplementedError
+
+    df = pd.DataFrame(columns=BOJ_COLUMNS)
+
+    df.to_csv(BOJ_FILE, index=False)
+
+    log(f"Created {BOJ_FILE}")
 
 def collect_us10y():
     """
-    Collect U.S. 10-Year Treasury yield data.
+    Create an empty U.S. 10-Year Treasury dataset.
     """
-    raise NotImplementedError
+
+    df = pd.DataFrame(columns=US10Y_COLUMNS)
+
+    df.to_csv(US10Y_FILE, index=False)
+
+    log(f"Created {US10Y_FILE}")
 
 def collect_jgb10y():
     """
-    Collect Japan 10-Year Government Bond yield data.
+    Create an empty Japan 10-Year Government Bond dataset.
     """
-    raise NotImplementedError
+
+    df = pd.DataFrame(columns=JGB10Y_COLUMNS)
+
+    df.to_csv(JGB10Y_FILE, index=False)
+
+    log(f"Created {JGB10Y_FILE}")
 
 def collect_usdjpy():
     """
-    Collect USD/JPY data.
+    Create an empty USD/JPY dataset.
     """
-    raise NotImplementedError
+
+    df = pd.DataFrame(columns=USDJPY_COLUMNS)
+
+    df.to_csv(USDJPY_FILE, index=False)
+
+    log(f"Created {USDJPY_FILE}")
 
 def main():
 
