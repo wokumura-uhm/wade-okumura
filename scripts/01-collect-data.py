@@ -276,7 +276,7 @@ def collect_boj_events():
         "event_name": "BOJ Oct 2023",
         "event_date": "2023-10-31",
         "event_type": "Bank of Japan",
-        "policy_action": "Policy Adjustment",
+        "policy_action": "YCC Adjustment",
     },
     {
         "event_name": "BOJ Dec 2023",
@@ -294,7 +294,7 @@ def collect_boj_events():
         "event_name": "BOJ Mar 2024",
         "event_date": "2024-03-19",
         "event_type": "Bank of Japan",
-        "policy_action": "Rate Increase",
+        "policy_action": "YCC Adjustment",
     },
     {
         "event_name": "BOJ Apr 2024",
@@ -336,7 +336,7 @@ def collect_boj_events():
         "event_name": "BOJ Jan 2025",
         "event_date": "2025-01-24",
         "event_type": "Bank of Japan",
-        "policy_action": "Policy Hold",
+        "policy_action": "Rate Increase",
     },
     {
         "event_name": "BOJ Mar 2025",
@@ -378,7 +378,7 @@ def collect_boj_events():
         "event_name": "BOJ Dec 2025",
         "event_date": "2025-12-19",
         "event_type": "Bank of Japan",
-        "policy_action": "Policy Hold",
+        "policy_action": "Rate Increase",
     },
     {
         "event_name": "BOJ Jan 2026",
@@ -402,7 +402,7 @@ def collect_boj_events():
         "event_name": "BOJ Jun 2026",
         "event_date": "2026-06-16",
         "event_type": "Bank of Japan",
-        "policy_action": "Policy Hold",
+        "policy_action": "Rate Increase",
     },
     {
         "event_name": "BOJ Jul 2026",
@@ -414,7 +414,7 @@ def collect_boj_events():
         "event_name": "BOJ Sep 2026",
         "event_date": "2026-09-18",
         "event_type": "Bank of Japan",
-        "policy_action": "Policy Hold",
+        "policy_action": "Rate Increase",
     }
     ]
 
@@ -424,9 +424,9 @@ def collect_boj_events():
 
     df["original_source"] = SOURCES["copilot"]
 
-    df["verified_source"] = ("")
+    df["verified_source"] = ("Bank of Japan Official Announcements")
 
-    df["verification_date"] = ""
+    df["verification_date"] = "2026-09-24"
 
     df = df[BOJ_COLUMNS]
 
