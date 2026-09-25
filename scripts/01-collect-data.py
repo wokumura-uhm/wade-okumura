@@ -465,14 +465,61 @@ def collect_us10y():
 
 def collect_jgb10y():
     """
-    Create an empty Japan 10-Year Government Bond dataset.
+    Collect Japan 10-Year Government Bond yields from
+    Ministry of Finance Japan.
     """
 
-    df = pd.DataFrame(columns=JGB10Y_COLUMNS)
+    url = (
+        "https://www.mof.go.jp/english/policy/jgbs/"
+        "reference/interest_rate/jgbcme.csv"
+    )
+
+    df = pd.read_csv(
+        url,
+        encoding="cp932"
+    )
+
+    # Promote first row to header
+    df.columns = df.iloc[0]
+
+    # Remove the old header row
+    df = df.iloc[1:].reset_index(drop=True)
+
+    # Keep only Date and 10Y
+    df = df.rename(
+        columns={
+            "Date": "date",
+            "10Y": "value",
+        }
+    )
+
+    df = df.rename(
+        columns={
+            "Date": "date",
+            "10Y": "value",
+        }
+    )
+
+    df = df[["date", "value"]]
+
+    df = df.dropna(subset=["value"])
+
+    df["date"] = pd.to_datetime(df["date"])
+
+    df = df[
+        (df["date"] >= ANALYSIS_START)
+        & (df["date"] <= ANALYSIS_END)
+    ]
+
+    df["source"] = SOURCES["jgb10y"]
+
+    df["retrieval_date"] = RETRIEVAL_DATE
+
+    df = df[JGB10Y_COLUMNS]
 
     df.to_csv(JGB10Y_FILE, index=False)
 
-    log(f"Created {JGB10Y_FILE}")
+    log(f"Created {JGB10Y_FILE} ({len(df)} rows)")
 
 def collect_usdjpy():
     """

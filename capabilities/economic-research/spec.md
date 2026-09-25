@@ -54,9 +54,9 @@ One row per event.
 
 ### Market Data
 
-- FRED (USD/JPY)
-- BOJ Statistical Data
-- Japan Ministry of Finance Yield Curve Data
+- FRED DGS10 U.S. 10-Year Treasury Yield
+- FRED DEXJPUS Exchange Rate
+- Ministry of Finance Japan Interest Rate Data (10Y JGB)
 
 ## Analysis Window
 
@@ -200,6 +200,74 @@ If no economically meaningful difference is observed, or if BOJ announcements ge
 6. Final research paper
 7. Corporate treasury recommendation
 
+## Citation and Reference Requirements
+
+All external facts, statistics, historical events, policy actions, market-data descriptions, and academic claims must be supported by citations.
+
+### Citation Style
+
+Use APA 7th Edition for in-text citations and the References section.
+
+### Source Requirements
+
+The final paper should cite, as applicable:
+
+- Federal Reserve publications and FOMC statements
+- Bank of Japan policy statements and announcements
+- Ministry of Finance Japan interest-rate data
+- FRED data-series documentation
+- Academic literature relevant to monetary-policy transmission, interest-rate differentials, and exchange-rate behavior
+
+Use primary and authoritative sources whenever available.
+
+### In-Text Citations
+
+Every source discussed, quoted, paraphrased, or used to support a factual claim must have an appropriate in-text citation.
+
+Every in-text citation must correspond to an entry in the References section.
+
+### Use of AI
+
+AI may be used for idea generation, coding assistance, data-processing assistance, editing, and feedback.
+
+AI-generated information must be independently verified against authoritative sources before inclusion in the final paper.
+
+AI interactions must be documented in the repository prompt log when they materially contribute to the research process or output.
+
+### References
+
+All sources cited in the paper must appear in a References section.
+
+Each reference should include, as applicable:
+
+- Author or organization
+- Publication date
+- Title
+- Publisher or source
+- URL or DOI
+
+### Figures and Tables
+
+Each figure and table must include:
+
+- Figure or table number
+- Descriptive title
+- Data-source citation
+- Notes describing transformations, calculations, definitions, or units when applicable
+
+### Data Provenance Requirements
+
+All source datasets must contain:
+
+- Source
+- Retrieval Date
+
+Policy-event datasets must additionally contain:
+
+- Original Source
+- Verification Source
+- Verification Date
+
 ## Acceptance Test Procedure
 
 The capability passes if:
@@ -211,6 +279,7 @@ The capability passes if:
 5. The hypothesis is evaluated using the predefined threshold.
 6. A recommendation for a corporate treasurer is provided.
 7. The final recommendation is logically supported by the empirical findings.
+8. All externally sourced claims, figures, tables, and datasets are cited, and every in-text citation corresponds to an entry in the References section.
 
 ## Audit findings
 
