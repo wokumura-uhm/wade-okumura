@@ -15,6 +15,7 @@ data/raw/usdjpy.csv
 from pathlib import Path
 from datetime import datetime
 import pandas as pd
+from pandas_datareader import data as pdr
 
 # Define path variables
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -64,7 +65,7 @@ USDJPY_COLUMNS = MARKET_COLUMNS
 SOURCES = {
     "fomc": "Federal Reserve",
     "boj": "Bank of Japan",
-    "us10y": "FRED",
+    "us10y": "FRED DGS10",
     "jgb10y": "Japan Ministry of Finance",
     "usdjpy": "FRED",
     "copilot": "AI-generated event list",
@@ -73,8 +74,8 @@ SOURCES = {
 # TODO
 # - Collect FOMC event dates
 # - Collect BOJ policy event dates
-# - Download US 10Y Treasury yield series
-# - Download USD/JPY exchange rate series
+# - Download US 10Y Treasury yield series from FRED
+# - Download USD/JPY exchange rate series from FRED
 # - Download JGB 10Y yield series
 
 def ensure_directories():
@@ -436,14 +437,31 @@ def collect_boj_events():
 
 def collect_us10y():
     """
-    Create an empty U.S. 10-Year Treasury dataset.
+    Collect U.S. 10-Year Treasury yield data from FRED.
     """
 
-    df = pd.DataFrame(columns=US10Y_COLUMNS)
+    df = pdr.DataReader(
+        "DGS10",
+        "fred",
+        ANALYSIS_START,
+        ANALYSIS_END,
+    )
+
+    df = df.reset_index()
+
+    df.columns = ["date", "value"]
+
+    df = df.dropna(subset=["value"])
+
+    df["source"] = SOURCES["us10y"]
+
+    df["retrieval_date"] = RETRIEVAL_DATE
+
+    df = df[US10Y_COLUMNS]
 
     df.to_csv(US10Y_FILE, index=False)
 
-    log(f"Created {US10Y_FILE}")
+    log(f"Created {US10Y_FILE} ({len(df)} rows)")
 
 def collect_jgb10y():
     """
