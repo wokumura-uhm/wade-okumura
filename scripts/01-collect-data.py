@@ -67,7 +67,7 @@ SOURCES = {
     "boj": "Bank of Japan",
     "us10y": "FRED DGS10",
     "jgb10y": "Japan Ministry of Finance",
-    "usdjpy": "FRED",
+    "usdjpy": "FRED DEXJPUS",
     "copilot": "AI-generated event list",
 }
 
@@ -476,14 +476,34 @@ def collect_jgb10y():
 
 def collect_usdjpy():
     """
-    Create an empty USD/JPY dataset.
+    Collect USD/JPY exchange rate data from FRED.
     """
 
-    df = pd.DataFrame(columns=USDJPY_COLUMNS)
+    df = pdr.DataReader(
+        "DEXJPUS",
+        "fred",
+        ANALYSIS_START,
+        ANALYSIS_END,
+    )
+
+    df = df.reset_index()
+
+    df.columns = ["date", "value"]
+
+    df = df.dropna(subset=["value"])
+
+    # Convert JPYUSD -> USDJPY
+    df["value"] = 1 / df["value"]
+
+    df["source"] = "FRED DEXJPUS"
+
+    df["retrieval_date"] = RETRIEVAL_DATE
+
+    df = df[USDJPY_COLUMNS]
 
     df.to_csv(USDJPY_FILE, index=False)
 
-    log(f"Created {USDJPY_FILE}")
+    log(f"Created {USDJPY_FILE} ({len(df)} rows)")
 
 def main():
 

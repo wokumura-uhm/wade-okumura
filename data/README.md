@@ -18,3 +18,21 @@ data/
 │   └── event-study-results.csv
 │
 └── README.md
+```
+
+## Raw Data
+
+Raw datasets replicate source systems without transformation.
+
+- us10y.csv = FRED DGS10
+- usdjpy.csv = FRED DEXJPUS
+- jgb10y.csv = Source download
+
+## Processed Data
+
+Processed datasets contain transformations used for analysis.
+
+Examples:
+- USD/JPY converted to standard market convention
+- Event windows merged with market series
+- Return calculations
