@@ -76,7 +76,7 @@ All event windows will be measured relative to that assigned Tokyo trading day.
 
 The proposed sample overlaps the final period of Bank of Japan Yield Curve Control (YCC) and the subsequent policy transition.
 
-Because YCC may affect observed 10-year Japanese government bond yield movements, the YCC exit will be treated as a structural break. Market reactions before and after the Bank of Japan's exit from Yield Curve Control will be analyzed separately to evaluate whether policy transmission changed following normalization.
+Because YCC may affect observed 10-year Japanese government bond yield movements, the YCC exit will be treated as a structural break. Market reactions before and after the Bank of Japan's exit from Yield Curve Control will be analyzed separately to evaluate whether policy transmission changed following normalization. Because the pre-YCC sample contains relatively few observations, pre-YCC results will be reported as descriptive context rather than used for formal hypothesis evaluation. The primary hypothesis test will be conducted using the post-YCC sample.
 
 ## Structure
 
@@ -162,19 +162,20 @@ Question: Which central bank generates the larger market reaction?
 
 ## Hypothesis Evaluation Criteria
 
-The hypothesis will be considered supported if the mean absolute 1-day change in the Japanese 10-year government bond yield around Federal Reserve announcements exceeds the mean absolute 1-day change around Bank of Japan announcements.
+The hypothesis will be considered supported only if:
+
+1. The mean absolute 1-day change in the Japanese 10-year government bond yield around FOMC announcements exceeds the mean absolute 1-day change around BOJ announcements.
+
+2. The difference is economically meaningful, defined as at least 5 basis points.
 
 The analysis will report:
 
-- Mean absolute yield change for FOMC events
-- Mean absolute yield change for BOJ events
+- Mean absolute JGB yield change for FOMC events
+- Mean absolute JGB yield change for BOJ events
 - Standard deviation of each event group
 - Difference between group means
 
-The hypothesis will be rejected if:
-
-- BOJ event reactions exceed FOMC event reactions, or
-- JGB yields move independently of U.S. Treasury yields.
+Differences smaller than 5 basis points will be reported but will not be treated as support for the hypothesis because they may lack practical significance for interest-rate risk management decisions.
 
 ## Success Criteria
 
@@ -184,6 +185,10 @@ The analysis will:
 - Measure market responses in JGB yields and USD/JPY.
 - Evaluate the hypothesis using the predefined criteria.
 - Provide a recommendation for a corporate treasurer responsible for managing interest-rate and foreign-exchange risk exposure.
+
+If FOMC announcements generate average JGB yield reactions at least 5 basis points larger than BOJ announcements, corporate treasurers should prioritize interest-rate risk monitoring and hedging activity around FOMC announcement dates.
+
+If no economically meaningful difference is observed, or if BOJ announcements generate larger reactions, treasurers should treat Federal Reserve and Bank of Japan announcements as having comparable relevance for Japanese interest-rate risk management.
 
 ## Outputs
 
