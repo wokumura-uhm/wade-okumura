@@ -1,1 +1,1 @@
-event_name,event_date,event_type,policy_action,source,retrieval_date
+event_name,event_date,event_type,policy_action,original_source,retrieval_date,verified_source,verification_date

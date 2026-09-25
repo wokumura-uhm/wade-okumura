@@ -67,7 +67,7 @@ SOURCES = {
     "us10y": "FRED",
     "jgb10y": "Japan Ministry of Finance",
     "usdjpy": "FRED",
-    "copilot": "AI-generated event list (unverified)",
+    "copilot": "AI-generated event list",
 }
 
 # TODO
@@ -192,19 +192,19 @@ def collect_fomc_events():
         "event_name": "FOMC Sep 2025",
         "event_date": "2025-09-17",
         "event_type": "Federal Reserve",
-        "policy_action": "Rate Hold",
+        "policy_action": "Rate Cut",
     },
     {
         "event_name": "FOMC Oct 2025",
         "event_date": "2025-10-29",
         "event_type": "Federal Reserve",
-        "policy_action": "Rate Hold",
+        "policy_action": "Rate Cut",
     },
     {
         "event_name": "FOMC Dec 2025",
         "event_date": "2025-12-10",
         "event_type": "Federal Reserve",
-        "policy_action": "Rate Hold",
+        "policy_action": "Rate Cut",
     },
     {
         "event_name": "FOMC Jan 2026",
@@ -250,9 +250,9 @@ def collect_fomc_events():
 
     df["original_source"] = SOURCES["copilot"]
 
-    df["verified_source"] = ""
+    df["verified_source"] = ("Federal Reserve FOMC Calendar and Statements")
 
-    df["verification_date"] = ""
+    df["verification_date"] = "2026-09-24"
 
     df = df[FOMC_COLUMNS]
 

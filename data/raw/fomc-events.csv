@@ -1,26 +1,26 @@
-event_name,event_date,event_type,policy_action,source,retrieval_date
-FOMC Sep 2023,2023-09-20,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Nov 2023,2023-11-01,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Dec 2023,2023-12-13,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Jan 2024,2024-01-31,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Mar 2024,2024-03-20,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC May 2024,2024-05-01,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Jun 2024,2024-06-12,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Jul 2024,2024-07-31,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Sep 2024,2024-09-18,Federal Reserve,Rate Cut,Federal Reserve,2026-09-24
-FOMC Nov 2024,2024-11-07,Federal Reserve,Rate Cut,Federal Reserve,2026-09-24
-FOMC Dec 2024,2024-12-18,Federal Reserve,Rate Cut,Federal Reserve,2026-09-24
-FOMC Jan 2025,2025-01-29,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Mar 2025,2025-03-19,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC May 2025,2025-05-07,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Jun 2025,2025-06-18,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Jul 2025,2025-07-30,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Sep 2025,2025-09-17,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Oct 2025,2025-10-29,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Dec 2025,2025-12-10,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Jan 2026,2026-01-28,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Mar 2026,2026-03-18,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Apr 2026,2026-04-29,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Jun 2026,2026-06-17,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Jul 2026,2026-07-29,Federal Reserve,Rate Hold,Federal Reserve,2026-09-24
-FOMC Sep 2026,2026-09-16,Federal Reserve,Rate Increase,Federal Reserve,2026-09-24
+event_name,event_date,event_type,policy_action,original_source,retrieval_date,verified_source,verification_date
+FOMC Sep 2023,2023-09-20,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Nov 2023,2023-11-01,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Dec 2023,2023-12-13,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Jan 2024,2024-01-31,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Mar 2024,2024-03-20,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC May 2024,2024-05-01,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Jun 2024,2024-06-12,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Jul 2024,2024-07-31,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Sep 2024,2024-09-18,Federal Reserve,Rate Cut,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Nov 2024,2024-11-07,Federal Reserve,Rate Cut,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Dec 2024,2024-12-18,Federal Reserve,Rate Cut,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Jan 2025,2025-01-29,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Mar 2025,2025-03-19,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC May 2025,2025-05-07,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Jun 2025,2025-06-18,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Jul 2025,2025-07-30,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Sep 2025,2025-09-17,Federal Reserve,Rate Cut,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Oct 2025,2025-10-29,Federal Reserve,Rate Cut,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Dec 2025,2025-12-10,Federal Reserve,Rate Cut,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Jan 2026,2026-01-28,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Mar 2026,2026-03-18,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Apr 2026,2026-04-29,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Jun 2026,2026-06-17,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Jul 2026,2026-07-29,Federal Reserve,Rate Hold,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24
+FOMC Sep 2026,2026-09-16,Federal Reserve,Rate Increase,AI-generated event list,2026-09-24,Federal Reserve FOMC Calendar and Statements,2026-09-24

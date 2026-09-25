@@ -16,7 +16,7 @@ Collects and prepares source datasets.
 
 Inputs:
 
-- Federal Reserve event data
+- Federal Reserve event data (Source: [Federal Reserve FOMC Calendars and Statements] (https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm))
 - Bank of Japan event data
 - U.S. 10-year Treasury yield data
 - Japan 10-year government bond yield data
