@@ -294,7 +294,7 @@ def collect_boj_events():
         "event_name": "BOJ Mar 2024",
         "event_date": "2024-03-19",
         "event_type": "Bank of Japan",
-        "policy_action": "YCC Adjustment",
+        "policy_action": "End YCC / Rate Increase",
     },
     {
         "event_name": "BOJ Apr 2024",
@@ -312,7 +312,7 @@ def collect_boj_events():
         "event_name": "BOJ Jul 2024",
         "event_date": "2024-07-31",
         "event_type": "Bank of Japan",
-        "policy_action": "Rate Increase",
+        "policy_action": "Rate Increase / Bond Purchase Change",
     },
     {
         "event_name": "BOJ Sep 2024",
@@ -426,7 +426,7 @@ def collect_boj_events():
 
     df["verified_source"] = ("Bank of Japan Official Announcements")
 
-    df["verification_date"] = "2026-09-24"
+    df["verification_date"] = "2026-09-25"
 
     df = df[BOJ_COLUMNS]
 
