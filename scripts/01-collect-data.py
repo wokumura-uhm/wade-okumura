@@ -471,7 +471,7 @@ def collect_jgb10y():
 
     url = (
         "https://www.mof.go.jp/english/policy/jgbs/"
-        "reference/interest_rate/jgbcme.csv"
+        "reference/interest_rate/historical/jgbcme_all.csv"
     )
 
     df = pd.read_csv(
@@ -493,16 +493,13 @@ def collect_jgb10y():
         }
     )
 
-    df = df.rename(
-        columns={
-            "Date": "date",
-            "10Y": "value",
-        }
-    )
-
     df = df[["date", "value"]]
 
-    df = df.dropna(subset=["value"])
+    # Remove blanks and dashes
+    df = df[df["value"].notna() & (df["value"] != "-")]
+
+    # Convert to numeric
+    df["value"] = pd.to_numeric(df["value"])
 
     df["date"] = pd.to_datetime(df["date"])
 
@@ -516,7 +513,7 @@ def collect_jgb10y():
     df["retrieval_date"] = RETRIEVAL_DATE
 
     df = df[JGB10Y_COLUMNS]
-
+    
     df.to_csv(JGB10Y_FILE, index=False)
 
     log(f"Created {JGB10Y_FILE} ({len(df)} rows)")
