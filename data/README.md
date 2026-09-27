@@ -31,8 +31,8 @@ Raw datasets replicate source systems without transformation.
 ## Processed Data
 
 Processed datasets contain transformations used for analysis.
-
 Examples:
+
 - USD/JPY converted to standard market convention
 - Event windows merged with market series
 - Return calculations

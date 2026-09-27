@@ -11,6 +11,7 @@ Short summaries, executive briefs, and condensed write-ups intended for quick co
 Decision records documenting important choices, trade-offs, assumptions, and rationale.
 
 ### reviews/
+
 Retrospectives, project reviews, lessons learned, and assessment documents.
 
 ## Documentation Principles
@@ -25,7 +26,7 @@ Documents in this folder should:
 ## Related Areas
 
 | Folder | Purpose |
-|----------|----------|
+| ---------- | ---------- |
 | `analysis/` | Research, analytics, and exploratory work |
 | `data/` | Data files and datasets |
 | `scripts/` | Automation and utility scripts |
