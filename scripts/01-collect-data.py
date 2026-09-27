@@ -536,9 +536,6 @@ def collect_usdjpy():
 
     df = df.dropna(subset=["value"])
 
-    # Convert JPYUSD -> USDJPY
-    df["value"] = 1 / df["value"]
-
     df["source"] = "FRED DEXJPUS"
 
     df["retrieval_date"] = RETRIEVAL_DATE

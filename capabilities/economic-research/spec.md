@@ -76,7 +76,7 @@ All event windows will be measured relative to that assigned Tokyo trading day.
 
 The proposed sample overlaps the final period of Bank of Japan Yield Curve Control (YCC) and the subsequent policy transition.
 
-Because YCC may affect observed 10-year Japanese government bond yield movements, the YCC exit will be treated as a structural break. Market reactions before and after the Bank of Japan's exit from Yield Curve Control will be analyzed separately to evaluate whether policy transmission changed following normalization. Because the pre-YCC sample contains relatively few observations, pre-YCC results will be reported as descriptive context rather than used for formal hypothesis evaluation. The primary hypothesis test will be conducted using the post-YCC sample.
+Because YCC may affect observed 10-year Japanese government bond yield movements, the YCC exit will be treated as a structural break. Market reactions before and after the Bank of Japan's exit from Yield Curve Control will be analyzed separately to evaluate whether policy transmission changed following normalization. Because the pre-exit sample contains relatively few observations, pre-exit results will be reported as descriptive context rather than used for formal hypothesis evaluation. The primary hypothesis test will be conducted using the post-exit sample.
 
 ## Structure
 
@@ -164,7 +164,7 @@ Question: Which central bank generates the larger market reaction?
 
 The hypothesis will be considered supported only if:
 
-1. The mean absolute 1-day change in the Japanese 10-year government bond yield around FOMC announcements exceeds the mean absolute 1-day change around BOJ announcements.
+1. The mean absolute change in the Japanese 10-year government bond yield over the assigned Tokyo trading-day even window surrounding FOMC announcements exceeds the mean absolute change over the assigned Tokyo trading-day event window surrounding BOJ announcements.
 
 2. The difference is economically meaningful, defined as at least 5 basis points.
 

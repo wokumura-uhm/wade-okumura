@@ -36,30 +36,28 @@ def load_market_data(file_path):
 
     return df.sort_values("date").reset_index(drop=True)
 
-
 def get_event_window(df, event_date):
     """
-    Return T-1, T0, and T+1 observations for an event date.
+    Return the last available trading observation before the event date
+    and the first available trading observation after the event date.
     """
-
     event_date = pd.to_datetime(event_date)
 
-    matches = df.index[df["date"] == event_date]
+    before = df[df["date"] < event_date]
+    after = df[df["date"] > event_date]
 
-    if len(matches) == 0:
+    if before.empty or after.empty:
         return None
 
-    idx = matches[0]
-
-    if idx == 0 or idx == len(df) - 1:
-        return None
+    t_minus_1 = before.iloc[-1]
+    t_plus_1 = after.iloc[0]
 
     return {
-        "t_minus_1": df.iloc[idx - 1]["value"],
-        "event_day": df.iloc[idx]["value"],
-        "t_plus_1": df.iloc[idx + 1]["value"],
+        "t_minus_1_date": t_minus_1["date"],
+        "t_minus_1_value": t_minus_1["value"],
+        "t_plus_1_date": t_plus_1["date"],
+        "t_plus_1_value": t_plus_1["value"],
     }
-
 
 def build_event_rows(events_df, market_df, series_name):
     rows = []
@@ -72,6 +70,14 @@ def build_event_rows(events_df, market_df, series_name):
         )
 
         if window is None:
+            print(
+                f"[WARNING] Unable to build {series_name} event window | "
+                f"{event['event_type']} | "
+                f"{event['event_date']} | "
+                f"series range: "
+                f"{market_df['date'].min().date()} to "
+                f"{market_df['date'].max().date()}"
+            )
             continue
 
         rows.append({
@@ -80,10 +86,12 @@ def build_event_rows(events_df, market_df, series_name):
             "event_type": event["event_type"],
             "policy_action": event["policy_action"],
             "series": series_name,
-            "t_minus_1": window["t_minus_1"],
-            "event_day": window["event_day"],
-            "t_plus_1": window["t_plus_1"],
-            "change": window["t_plus_1"] - window["t_minus_1"],
+            "t_minus_1_date": window["t_minus_1_date"],
+            "t_minus_1_value": window["t_minus_1_value"],
+            "t_plus_1_date": window["t_plus_1_date"],
+            "t_plus_1_value": window["t_plus_1_value"],
+            "change": window["t_plus_1_value"] - window["t_minus_1_value"],
+            "absolute_change": abs(window["t_plus_1_value"] - window["t_minus_1_value"]),
         })
 
     return rows
@@ -118,6 +126,17 @@ def main():
 
     event_dataset = pd.DataFrame(rows)
 
+    value_columns = [
+        "t_minus_1_value",
+        "t_plus_1_value",
+        "change",
+        "absolute_change",
+    ]
+
+    event_dataset[value_columns] = (
+        event_dataset[value_columns].round(6)
+    )
+
     event_dataset.to_csv(
         DATASET_FILE,
         index=False
@@ -127,7 +146,6 @@ def main():
         f"Created {DATASET_FILE} "
         f"({len(event_dataset)} rows)"
     )
-
 
 if __name__ == "__main__":
     main()
