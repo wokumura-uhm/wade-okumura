@@ -150,17 +150,50 @@ def main():
     )
 
     # Generate event-study-results
-    results = (
-        event_dataset
-        .groupby(["event_type", "series"])
-        .agg(
-            count=("change", "count"),
-            mean_change=("change", "mean"),
-            mean_absolute_change=("absolute_change", "mean"),
-            std_change=("change", "std"),
-            std_absolute_change=("absolute_change", "std"),
+
+    YCC_EXIT_DATE = pd.to_datetime("2024-03-19")
+
+    event_dataset["event_date"] = pd.to_datetime(
+        event_dataset["event_date"]
+    )
+
+    full_sample = event_dataset.copy()
+
+    pre_exit = event_dataset[
+        event_dataset["event_date"] < YCC_EXIT_DATE
+    ].copy()
+
+    post_exit = event_dataset[
+        event_dataset["event_date"] > YCC_EXIT_DATE
+    ].copy()
+
+
+    def summarize_sample(df, sample_name):
+        results = (
+            df
+            .groupby(["event_type", "series"])
+            .agg(
+                count=("change", "count"),
+                mean_change=("change", "mean"),
+                mean_absolute_change=("absolute_change", "mean"),
+                std_change=("change", "std"),
+                std_absolute_change=("absolute_change", "std"),
+            )
+            .reset_index()
         )
-        .reset_index()
+
+        results.insert(0, "sample", sample_name)
+
+        return results
+
+
+    results = pd.concat(
+        [
+            summarize_sample(full_sample, "Full Sample"),
+            summarize_sample(pre_exit, "Pre-Exit"),
+            summarize_sample(post_exit, "Post-Exit"),
+        ],
+        ignore_index=True,
     )
 
     numeric_columns = [

@@ -1,7 +1,19 @@
-event_type,series,count,mean_change,mean_absolute_change,std_change,std_absolute_change
-Bank of Japan,JGB10Y,24,0.009583,0.035083,0.046552,0.031283
-Federal Reserve,JGB10Y,24,0.000292,0.027625,0.033656,0.018344
-Bank of Japan,US10Y,25,-0.0044,0.0708,0.085004,0.044993
-Federal Reserve,US10Y,25,-0.0236,0.0916,0.114305,0.07004
-Bank of Japan,USDJPY,24,0.127083,1.40625,1.813343,1.114247
-Federal Reserve,USDJPY,25,-0.452,1.8208,2.212259,1.285868
+sample,event_type,series,count,mean_change,mean_absolute_change,std_change,std_absolute_change
+Full Sample,Bank of Japan,JGB10Y,24,0.009583,0.035083,0.046552,0.031283
+Pre-Exit,Bank of Japan,JGB10Y,4,0.0,0.064,0.082171,0.035926
+Post-Exit,Bank of Japan,JGB10Y,19,0.012737,0.030211,0.039837,0.028193
+Full Sample,Federal Reserve,JGB10Y,24,0.000292,0.027625,0.033656,0.018344
+Pre-Exit,Federal Reserve,JGB10Y,4,-0.02025,0.03575,0.039978,0.020998
+Post-Exit,Federal Reserve,JGB10Y,20,0.0044,0.026,0.031816,0.017918
+Full Sample,Bank of Japan,US10Y,25,-0.0044,0.0708,0.085004,0.044993
+Pre-Exit,Bank of Japan,US10Y,4,-0.0175,0.0825,0.095699,0.022174
+Post-Exit,Bank of Japan,US10Y,20,0.0015,0.0685,0.085918,0.049447
+Full Sample,Federal Reserve,US10Y,25,-0.0236,0.0916,0.114305,0.07004
+Pre-Exit,Federal Reserve,US10Y,4,-0.14,0.2,0.177576,0.065828
+Post-Exit,Federal Reserve,US10Y,21,-0.001429,0.070952,0.08788,0.049387
+Full Sample,Bank of Japan,USDJPY,24,0.127083,1.40625,1.813343,1.114247
+Pre-Exit,Bank of Japan,USDJPY,4,0.84,1.16,1.10529,0.606905
+Post-Exit,Bank of Japan,USDJPY,19,-0.149474,1.398947,1.866424,1.20056
+Full Sample,Federal Reserve,USDJPY,25,-0.452,1.8208,2.212259,1.285868
+Pre-Exit,Federal Reserve,USDJPY,4,-1.7025,1.7025,1.551137,1.551137
+Post-Exit,Federal Reserve,USDJPY,21,-0.21381,1.843333,2.267087,1.272758
