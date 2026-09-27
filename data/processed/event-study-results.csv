@@ -1,0 +1,7 @@
+event_type,series,count,mean_change,mean_absolute_change,std_change,std_absolute_change
+Bank of Japan,JGB10Y,24,0.009583,0.035083,0.046552,0.031283
+Federal Reserve,JGB10Y,24,0.000292,0.027625,0.033656,0.018344
+Bank of Japan,US10Y,25,-0.0044,0.0708,0.085004,0.044993
+Federal Reserve,US10Y,25,-0.0236,0.0916,0.114305,0.07004
+Bank of Japan,USDJPY,24,0.127083,1.40625,1.813343,1.114247
+Federal Reserve,USDJPY,25,-0.452,1.8208,2.212259,1.285868

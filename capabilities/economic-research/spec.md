@@ -66,11 +66,9 @@ The event window will be limited to one or two Tokyo trading days surrounding ea
 
 The analysis will map each policy announcement to the Tokyo trading session in which market participants could first react.
 
-FOMC announcements occurring after the Tokyo market close will be assigned to the next Tokyo trading day.
+The analysis will use the recorded policy-announcement date as the event date. All event windows will be measured relative to the event date using Tokyo trading-day observations.
 
-BOJ announcements occurring during Tokyo trading hours will be assigned to the same Tokyo trading day.
-
-All event windows will be measured relative to that assigned Tokyo trading day.
+All event windows will be measured relative to the event date using the change from t-1 to t+1, where t-1 is the last available trading day before the event date and t+1 is the first available trading day after the event date.
 
 ## Sample Design Considerations
 
@@ -164,7 +162,7 @@ Question: Which central bank generates the larger market reaction?
 
 The hypothesis will be considered supported only if:
 
-1. The mean absolute change in the Japanese 10-year government bond yield over the assigned Tokyo trading-day even window surrounding FOMC announcements exceeds the mean absolute change over the assigned Tokyo trading-day event window surrounding BOJ announcements.
+1. The mean absolute two-trading-day change in the Japanese 10-year government bond yield measured from t-1 to t+1 around FOMC announcements exceeds the mean absolute two-trading-day change measured from t-1 to t+1 around BOJ announcements.
 
 2. The difference is economically meaningful, defined as at least 5 basis points.
 
@@ -273,7 +271,7 @@ Policy-event datasets must additionally contain:
 The capability passes if:
 
 1. All FOMC and BOJ events are collected.
-2. Tokyo trading-day windows are correctly assigned.
+2. Event windows are correctly constructed using the nearest available trading days surrounding each event date.
 3. JGB yield changes are calculated for all events.
 4. Mean and standard deviation are reported.
 5. The hypothesis is evaluated using the predefined threshold.

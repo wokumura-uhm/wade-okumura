@@ -27,7 +27,7 @@ USDJPY_FILE = RAW_DIR / "usdjpy.csv"
 JGB10Y_FILE = RAW_DIR / "jgb10y.csv"
 
 DATASET_FILE = PROCESSED_DIR / "event-dataset.csv"
-
+RESULTS_FILE = PROCESSED_DIR / "event-study-results.csv"
 
 def load_market_data(file_path):
     df = pd.read_csv(file_path)
@@ -101,6 +101,7 @@ def main():
 
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
+    # Load the raw data
     fomc = pd.read_csv(FOMC_FILE)
     boj = pd.read_csv(BOJ_FILE)
 
@@ -110,6 +111,7 @@ def main():
 
     rows = []
 
+    # Generate event_dataset
     for events in [fomc, boj]:
 
         rows.extend(
@@ -145,6 +147,49 @@ def main():
     print(
         f"Created {DATASET_FILE} "
         f"({len(event_dataset)} rows)"
+    )
+
+    # Generate event-study-results
+    results = (
+        event_dataset
+        .groupby(["event_type", "series"])
+        .agg(
+            count=("change", "count"),
+            mean_change=("change", "mean"),
+            mean_absolute_change=("absolute_change", "mean"),
+            std_change=("change", "std"),
+            std_absolute_change=("absolute_change", "std"),
+        )
+        .reset_index()
+    )
+
+    numeric_columns = [
+    "mean_change",
+    "mean_absolute_change",
+    "std_change",
+    "std_absolute_change",
+    ]
+
+    results[numeric_columns] = (
+        results[numeric_columns]
+        .round(6)
+    )
+
+    results = results.sort_values(
+        ["series", "event_type"]
+    ).reset_index(drop=True)
+
+    results.to_csv(
+        RESULTS_FILE,
+        index=False
+    )
+
+    print("\nEvent Study Results")
+    print(results)
+
+    print(
+        f"Created {RESULTS_FILE} "
+        f"({len(results)} rows)"
     )
 
 if __name__ == "__main__":
