@@ -58,13 +58,35 @@ One row per event.
 - FRED DEXJPUS Exchange Rate
 - Ministry of Finance Japan Interest Rate Data (10Y JGB)
 
+### Data Source Evaluation
+
+Candidate data sources were evaluated based on historical coverage, authority, accessibility, consistency, and the ability to reproduce the data-collection process.
+
+#### Sources Selected
+
+| Dataset | Selected Source | Rationale |
+| --- | --- | --- |
+| Federal Reserve policy events | Federal Reserve and FOMC publications | Primary sources provide the official announcement date, policy action, and supporting documentation needed to construct and verify the event dataset. |
+| Bank of Japan policy events | Bank of Japan publications | Primary sources provide the official announcement date, policy action, and supporting documentation needed to construct and verify the event dataset. |
+| U.S. 10-Year Treasury Yield | FRED DGS10 | Provides a documented daily market-yield series in a format suitable for reproducible data collection and event-window analysis. |
+| USD/JPY Exchange Rate | FRED DEXJPUS | Provides a documented exchange-rate series in a format suitable for reproducible data collection and event-window analysis. |
+| Japan 10-Year Government Bond Yield | Ministry of Finance Japan historical interest-rate data | Provides historical Japanese government bond yield data with sufficient coverage for the defined analysis period and supports a reproducible data-collection process. |
+
+#### Sources Evaluated but Not Selected
+
+| Candidate Source | Decision | Rationale |
+| --- | --- | --- |
+| Japan Bond Trading Co. historical data | Not selected | The publicly accessible historical-data interface provided insufficient coverage for the required analysis period. The Ministry of Finance historical dataset was selected instead because it provided the necessary historical coverage in a format that could be collected reproducibly. |
+
+Sources that were evaluated but not used are documented here to preserve the project’s decision trail. Only the selected sources will be used to construct the final analytical datasets. Changes to the selected sources must be reflected in this specification, the data-provenance documentation, and the prompt log when AI materially contributes to the decision.
+
 ## Analysis Window
 
 For each policy event the events will be measured using Tokyo trading days rather than calendar days.
 
 The event window will be limited to one or two Tokyo trading days surrounding each announcement in order to isolate the market reaction and avoid overlap with other central-bank meetings.
 
-The analysis will map each policy announcement to the Tokyo trading session in which market participants could first react.
+Event windows will be constructed using the nearest available Tokyo trading days surrounding each policy announcement date. For each event, t-1 is defined as the last available trading day before the announcement date and t+1 is defined as the first available trading day after the announcement date.
 
 The analysis will use the recorded policy-announcement date as the event date. All event windows will be measured relative to the event date using Tokyo trading-day observations.
 
@@ -171,7 +193,6 @@ The analysis will report:
 - Mean absolute JGB yield change for FOMC events
 - Mean absolute JGB yield change for BOJ events
 - Standard deviation of each event group
-- Difference between group means
 
 Differences smaller than 5 basis points will be reported but will not be treated as support for the hypothesis because they may lack practical significance for interest-rate risk management decisions.
 
