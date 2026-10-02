@@ -98,6 +98,10 @@ The proposed sample overlaps the final period of Bank of Japan Yield Curve Contr
 
 Because YCC may affect observed 10-year Japanese government bond yield movements, the YCC exit will be treated as a structural break. Market reactions before and after the Bank of Japan's exit from Yield Curve Control will be analyzed separately to evaluate whether policy transmission changed following normalization. Because the pre-exit sample contains relatively few observations, pre-exit results will be reported as descriptive context rather than used for formal hypothesis evaluation. The primary hypothesis test will be conducted using the post-exit sample.
 
+The BOJ exit from Yield Curve Control on 2024-03-19 is treated as the structural-break event itself and is therefore excluded from both the pre-exit and post-exit samples. The event is retained in the full sample but not used in either regime-specific comparison.
+
+A sensitivity test including the 2024-03-19 BOJ exit event in the post-exit sample did not change the hypothesis verdict. The event therefore remains excluded from both regime-specific samples and is treated as the structural-break event itself.
+
 ## Structure
 
 ### Sheet 1 - Inputs
@@ -193,6 +197,8 @@ The analysis will report:
 - Mean absolute JGB yield change for FOMC events
 - Mean absolute JGB yield change for BOJ events
 - Standard deviation of each event group
+- Difference between post-exit group means
+- Hypothesis verdict
 
 Differences smaller than 5 basis points will be reported but will not be treated as support for the hypothesis because they may lack practical significance for interest-rate risk management decisions.
 

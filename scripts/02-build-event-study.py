@@ -212,6 +212,54 @@ def main():
         ["series", "event_type"]
     ).reset_index(drop=True)
 
+    # Hypothesis evaluation
+    post_exit_jgb = results[
+        (results["sample"] == "Post-Exit") &
+        (results["series"] == "JGB10Y")
+    ]
+
+    fomc_mean = post_exit_jgb[
+        post_exit_jgb["event_type"] == "Federal Reserve"
+    ]["mean_absolute_change"].iloc[0]
+
+    boj_mean = post_exit_jgb[
+        post_exit_jgb["event_type"] == "Bank of Japan"
+    ]["mean_absolute_change"].iloc[0]
+
+    difference = fomc_mean - boj_mean
+
+    hypothesis_supported = (
+        fomc_mean > boj_mean
+        and difference >= 0.05
+    )
+
+    summary = pd.DataFrame([
+        {
+            "sample": "Post-Exit",
+            "event_type": "Hypothesis Test",
+            "series": "JGB10Y",
+            "count": "",
+            "mean_change": "",
+            "mean_absolute_change": "",
+            "std_change": "",
+            "std_absolute_change": "",
+            "difference": round(difference, 6),
+            "verdict": (
+                "Supported" 
+                if hypothesis_supported 
+                else "Not Supported"
+            ),
+        }
+    ])
+
+    results["difference"] = ""
+    results["verdict"] = ""
+
+    results = pd.concat(
+        [results, summary],
+        ignore_index=True,
+    )
+
     results.to_csv(
         RESULTS_FILE,
         index=False
