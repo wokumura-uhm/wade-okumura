@@ -333,7 +333,7 @@ UNUSED_BEDS
 
 **What I checked:** I ran GRG Nonlinear with integer constraints from two starting allocations: 0/0/0 and 20/0/0.
 
-**What I found:** Starting from 0/0/0 produced 10/20/30 beds and $42,762 profit. Starting from 20/0/0 produced 10/20/30 beds and $42,762 profit.
+**What I found:** Starting from 0/0/0 produced 10/20/30 beds and an optimal profit of $42,761.66. Starting from 20/0/0 produced the same 10/20/30 allocation and the same optimal profit of $42,761.66. When rounded to the nearest dollar, both runs report $42,762.
 
 **What I did:** No model changes were required because Solver produced the same optimum from both starting points and no evidence of path dependence was observed.
 
