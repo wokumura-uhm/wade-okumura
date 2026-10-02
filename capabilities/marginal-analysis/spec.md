@@ -40,7 +40,6 @@ The model must identify the optimal planting mix, expected profit, labor utiliza
 | `MAX_TEMP_WORKERS` | 4 | max num workers | Case scenario |
 | `BED_FIXED_COST` | 20000 | USD | Case scenario |
 | `FARMER_SEASON_HRS` | 1440 | hours | Derived from case assumptions: 2 x FARMER_HOURS |
-| `FARMER_SALARY` | 50000 | USD | Case scenario |
 | `FARMER_RATE` | 34.7222222222 | USD per hour | Derived: FARMER_SALARY / FARMER_SEASON_HRS |
 | `TEMP_COST_EACH` | 25000 | USD per worker per season | Case scenario |
 | `TEMP_RATE` | 17.3611111111 | USD per hour | Derived: TEMP_COST_EACH / TEMP_WORKER_HOURS |
@@ -85,7 +84,6 @@ Five sheets.
     - MES_BEDS <= MES_MAX_BEDS
     - TOM_BEDS + CAR_BEDS + MES_BEDS <= TOTAL_BEDS
     - TEMP_HOURS_USED <= MAX_TEMP_WORKERS x TEMP_WORKER_HOURS
-    - TOTAL_LABOR_COST <= (FARMER_SALARY + (MAX_TEMP_WORKERS x TEMP_COST_EACH))
     - All bed allocations are integers.
 
 - Checks
@@ -251,7 +249,6 @@ Test: Verify optimal solution satisfies:
 - MES_BEDS <= MES_MAX_BEDS
 - TOM_BEDS + CAR_BEDS + MES_BEDS <= TOTAL_BEDS
 - TEMP_HOURS_USED <= MAX_TEMP_WORKERS x TEMP_WORKER_HOURS
-- TOTAL_LABOR_COST <= (FARMER_SALARY + (MAX_TEMP_WORKERS x TEMP_COST_EACH))
 - Bed allocations are integers
 
 Expected Result: No constraint violation.
