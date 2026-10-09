@@ -203,7 +203,7 @@ print(
 
 df["period"] = "2025"
 
-df.loc[df["date"] < "2024-03-19", "period"] = "Pre-YCC"
+df.loc[df["date"] < "2024-03-19", "period"] = "Pre-Exit"
 df.loc[
     (df["date"] >= "2024-03-19")
     & (df["date"] < "2025-01-01"),
@@ -219,7 +219,7 @@ df.loc[
 df.loc[df["date"] >= "2026-01-01", "period"] = "2026"
 
 colors = {
-    "Pre-YCC": "red",
+    "Pre-Exit": "red",
     "2024": "blue",
     "2025": "green",
     "2026": "orange",
@@ -267,39 +267,67 @@ results = pd.read_csv(
     DATAP_DIR / "event-study-results.csv"
 )
 
-metric = "mean_absolute_change"
+boj = results[
+    (results["sample"] == "Post-Exit")
+    & (results["event_type"] == "Bank of Japan")
+    & (results["series"] == "JGB10Y")
+]["mean_absolute_change"].iloc[0] * 100
 
-pivot = results.pivot_table(
-    index="series",
-    columns=["event_type", "sample"],
-    values=metric,
+fed = results[
+    (results["sample"] == "Post-Exit")
+    & (results["event_type"] == "Federal Reserve")
+    & (results["series"] == "JGB10Y")
+]["mean_absolute_change"].iloc[0] * 100
+
+plt.figure(figsize=(8, 5))
+
+plt.bar(
+    ["BOJ", "Federal Reserve"],
+    [boj, fed],
+    color=["blue", "orange"]
 )
 
-ax = pivot.plot(
-    kind="bar",
-    figsize=(12, 6),
+plt.axhline(
+    y=5,
+    color="red",
+    linestyle="--",
+    label="5 bp threshold"
 )
 
-plt.title(
-    "Average Absolute Market Response to Policy Announcements"
+bars = plt.bar(
+    ["BOJ", "Federal Reserve"],
+    [boj, fed],
+    color=["blue", "orange"]
 )
 
-plt.xlabel("Financial Series")
-plt.ylabel("Mean Absolute Change")
+# Bar labels
+for bar in bars:
+    h = bar.get_height()
+    plt.text(
+        bar.get_x() + bar.get_width()/2,
+        h + 0.05,
+        f"{h:.2f} bp",
+        ha="center",
+        va="bottom",
+        fontweight="bold"
+    )
 
-plt.legend(
-    title="Event Type / Sample",
-    bbox_to_anchor=(1.05, 1),
-    loc="upper left",
+# Difference annotation
+difference = fed - boj
+
+plt.text(
+    0.5,
+    3.6,
+    f"Difference = {difference:.2f} bp\nVerdict: Not Supported",
+    ha="center",
+    bbox=dict(facecolor="white", alpha=0.8)
 )
 
-plt.grid(
-    axis="y",
-    alpha=0.3,
-)
+plt.ylabel("Average Absolute Change (basis points)")
+plt.title("Post-Exit JGB10Y Event Study Comparison")
+plt.legend()
 
 plt.tight_layout()
-
 plt.savefig(
     FIGURES_DIR / "figure-03-event-study-comparison.png",
     dpi=300,
