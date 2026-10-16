@@ -3,12 +3,14 @@ template: prompt-log
 purpose: "Running log of meaningful AI prompts and outputs used in a project — supports reproducibility and AI-use disclosure"
 audience: student
 fields_required: [date, goal, prompt, tool, output_location, notes]
-naming_convention: "prompt-log.md (one per project, lives in deliverables/)"
+naming_convention: "prompt-log.md (repository-wide log organized by project)"
 courses: [BUS-313, BUS-314, BUS-620, BUS-629, FIN-321, BUS-122B]
 started: 2026-08-30
 ---
 
 # Prompt Log
+
+## Archived Project Prompt Log
 
 | Date | Goal | Exact Prompt | Tool (LLM/Sheet/Code) | Output Link/Location | Notes |
 | ------ | ------ | -------------- | ------------------------ | ---------------------- | ------- |
@@ -89,3 +91,12 @@ AI also helped identify places where the research design and implementation did 
 The project also showed where AI was less useful. AI could suggest interpretations and counterarguments, but it could not decide whether the evidence was economically meaningful or what recommendation should follow. Those judgments required comparing the results with the predefined 5-basis-point criterion and considering the limitations of the short post-exit sample. The final recommendation therefore reflects my interpretation of the verified results, not an AI-generated conclusion.
 
 Overall, AI improved the structure, reproducibility, and critical review of the project, but verification remained essential. The most important lesson was to use AI outputs as starting points for investigation. Every number, source, methodological choice, and interpretation still had to be checked against the underlying data and official materials before it belonged in the final paper.
+
+## ServiceNow AI Thesis Prompt Log
+
+| Date | Goal | Exact Prompt | Tool (LLM/Sheet/Code) | Output Link/Location | Notes |
+| ------ | ------ | -------------- | ------------------------ | ---------------------- | ------- |
+| 2026-10-15 | Evaluate the ServiceNow growth claim in the 2028 Global Intelligence Crisis paper | "Is this true? It mentions ServiceNow growth is decelerating in October. We are in the middle of October now." | Microsoft Copilot | Output in Copilot interface | Evaluated the statement as part of a forward-looking scenario rather than verified October operating data. Identified the need to distinguish ordinary growth deceleration from evidence that internally developed AI is replacing commercial SaaS purchases. |
+| 2026-10-15 | Create a falsifiable research brief for the ServiceNow AI thesis | "Let's create the brief." | Microsoft Copilot | docs/briefs/servicenow-ai-thesis.md | Created the problem statement, primary hypothesis, alternative explanations, falsification criteria, evidence standard, measures to track, evaluation approach, and decision rule for testing whether enterprise AI adoption is reducing demand for ServiceNow and other commercial SaaS platforms. |
+| 2026-10-15 | Organize scripts by project | "Oops. Those were for the research brief project. I've moved them there. We need new ones for the ServiceNow AI thesis." | Microsoft Copilot | scripts/individual-research/; scripts/servicenow-ai-thesis/ | Separated the existing Individual Research event-study scripts from the new ServiceNow AI thesis workflow by creating project-specific subfolders under scripts. |
+| 2026-10-15 | Define the ServiceNow AI thesis script workflow | "README.md" | Microsoft Copilot | scripts/servicenow-ai-thesis/README.md | Documented a four-step workflow for collecting evidence, extracting signals, scoring the hypothesis, and building the research report. Defined evidence standards, design principles, expected outputs, and the current implementation status. |
